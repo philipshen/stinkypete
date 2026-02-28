@@ -1,0 +1,19 @@
+# Research Configuration
+# Edit these settings to control how research sessions behave.
+# Agents read this file but never modify it.
+
+# Which deep research API to use.
+#   "gemini"  - Google Gemini Deep Research API only
+#   "openai"  - OpenAI Deep Research API only
+#   "random"  - Randomly pick gemini or openai for each topic
+#   "all"     - Run both APIs per topic (doubles cost, cross-validates)
+deep_research_api: "all"
+
+# Maximum number of deep-research subagents running concurrently.
+# Higher = faster but more API calls and costs.
+max_parallel_agents: 3
+
+# When the TODO reaches this count, the orchestrator pauses and asks
+# whether to continue, narrow scope, or synthesize with what's available.
+# Set to 0 for no limit.
+max_todo_items: 0
