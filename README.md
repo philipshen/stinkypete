@@ -1,4 +1,6 @@
-# Researcher
+![Stinky Pete](https://static.wikia.nocookie.net/pixar/images/9/91/Stinky_Pete.png/revision/latest?cb=20241007180854)
+
+# Auto Researcher
 
 Recursive deep research powered by Gemini and OpenAI deep research APIs, orchestrated by any agent that can reference the skills (Claude Code, Codex, Gemini, Cursor should all work).
 
