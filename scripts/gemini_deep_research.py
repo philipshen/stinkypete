@@ -32,7 +32,7 @@ def main():
     prompt_group.add_argument("--prompt", type=str, help="Research prompt text")
     prompt_group.add_argument("--prompt-file", type=str, help="File containing research prompt")
     parser.add_argument("--output", type=str, required=True, help="Output file path")
-    parser.add_argument("--timeout", type=int, default=900, help="Timeout in seconds (default: 900)")
+    parser.add_argument("--timeout", type=int, default=3600, help="Timeout in seconds (default: 3600)")
     parser.add_argument("--poll-interval", type=int, default=10, help="Poll interval in seconds (default: 10)")
     args = parser.parse_args()
 

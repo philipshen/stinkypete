@@ -1,0 +1,3 @@
+- Never update config.yml
+- Never update skills or scripts during research sessions
+- Every LOG.md entry uses `{ISO8601 UTC}` format. You MUST get the actual current time by running `date -u +"%Y-%m-%dT+%H:%M:%SZ"` via Bash before writing any log entry. Never fabricate or estimate timestamps.

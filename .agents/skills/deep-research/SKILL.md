@@ -9,6 +9,8 @@ description: Use when dispatched as a subagent to research a single topic using 
 
 Handles a single deep research task. Dispatched by `recursive-research` with full context pasted in. Calls a deep research API via Python script, processes the result, extracts insights, and updates LOG.md.
 
+**Timestamps:** Every LOG.md entry uses `{ISO8601 UTC}` format. You MUST get the actual current time by running `date -u +"%Y-%m-%dT%H:%M:%SZ"` via Bash before writing any log entry. Never fabricate or estimate timestamps.
+
 ## When to Use
 
 - You are dispatched as a subagent by the `recursive-research` skill
@@ -120,8 +122,11 @@ Read through all raw output files carefully. When both `RAW_GEMINI_OUTPUT.md` an
 
 ## Open Questions
 
-- {Question 1}
-- {Question 2}
+### {Question 1}
+**Status:** Open
+
+### {Question 2}
+**Status:** Open
 
 ## Primary Sources
 

@@ -1,0 +1,68 @@
+Research the following topic in depth:
+
+TOPIC: Israeli Defense & Nuclear/Uranium — Elbit Systems, Israeli Defense Ecosystem, and Uranium Plays if Conflict Escalates Toward Nuclear Facilities
+
+CONTEXT: This research is part of a larger investigation into stock trade ideas stemming from a war between Iran and the United States + Israel (conflict began February 28, 2026). The final output will be an interactive HTML site with trade cards for Israeli defense and nuclear/uranium stocks including investment theses, risk/reward analysis, historical precedents, and citations. This topic covers two related sub-sectors: (1) Israeli defense companies, particularly Elbit Systems (ESLT), that are directly engaged in the conflict, and (2) uranium/nuclear fuel companies (Cameco/CCJ, Uranium Energy Corp/UEC) that could benefit if strikes on Iranian nuclear facilities escalate concerns about nuclear proliferation and fuel security.
+
+Please provide a comprehensive analysis covering:
+
+1. **Elbit Systems (ESLT) — Deep Dive**
+   - Current financial position: revenue, earnings, backlog, P/E ratio, market cap (as of early 2026)
+   - Key products relevant to Iran conflict: UAVs (Hermes series), precision-guided munitions, electronic warfare systems, C4ISR, Iron Dome components, Trophy active protection system
+   - Historical stock performance during Israeli conflicts: 2014 Gaza War, 2021 Guardian of the Walls, 2023-24 Iron Swords, and any 2025-2026 escalation
+   - Percentage moves and timeframes after conflict onset
+   - Revenue breakdown: Israel vs. international sales
+   - Key contracts and recent wins
+   - Elbit's role in Israeli defense industrial base vs. Rafael and IAI (government-owned competitors)
+   - Risk factors: Israeli operations disruption, employee mobilization (IDF reserves), supply chain in conflict zone, ESG/BDS boycott pressures
+   - Bull/base/bear case price targets
+
+2. **Broader Israeli Defense Ecosystem**
+   - Rafael Advanced Defense Systems (private) — Iron Dome, David's Sling, Trophy
+   - Israel Aerospace Industries (IAI, government-owned) — Arrow missile defense, satellites, UAVs
+   - Other publicly traded Israeli defense-adjacent companies: Check Point Software (CHKP), CyberArk (CYBR), Tower Semiconductor (TSEM)
+   - How the war economy affects Israeli tech sector broadly
+   - Israel's defense budget trajectory and emergency appropriations
+   - U.S. military aid to Israel ($3.8B annual + supplementals) and how it flows to specific companies
+
+3. **Uranium & Nuclear Fuel Plays**
+   - **Cameco (CCJ)**: World's largest public uranium producer; current financial position, uranium production (McArthur River, Cigar Lake), JV Ventures (Westinghouse nuclear fuel), current stock price, P/E, and valuation
+   - **Uranium Energy Corp (UEC)**: U.S.-based junior producer; ISR production capabilities, Christensen Ranch, Roughrider acquisition, current valuation
+   - **Sprott Physical Uranium Trust (SRUUF/U.UN)**: Physical uranium holding vehicle; premium/discount to NAV
+   - **Global Atomic (GLO)**: Emerging producer with Niger operations
+   - **NexGen Energy (NXE)**: Arrow deposit in Saskatchewan
+   - How strikes on Iranian nuclear facilities (Natanz, Fordow, Isfahan) affect:
+     - Uranium spot and term contract prices
+     - Nuclear fuel supply chain disruption concerns
+     - Sentiment around nuclear proliferation → increased demand for enrichment services
+     - Western government urgency to secure domestic/allied uranium supply
+   - Current uranium market fundamentals: spot price (~$75-85/lb?), long-term contract prices, supply deficit, utility contracting cycle
+   - Historical uranium price moves during geopolitical events (Fukushima crash, Russia-Ukraine war uranium spike)
+   - The "security of supply" thesis: Western utilities reducing Russian uranium dependence (TENEX/Rosatom sanctions)
+   - HALEU (High-Assay Low-Enriched Uranium) demand for next-gen reactors and weapons programs
+
+4. **Iran Nuclear Program Context**
+   - Status of Iran's nuclear facilities: Natanz, Fordow, Isfahan, Arak, Bushehr
+   - Iran's enrichment levels (60%+ HEU stockpile as of early 2026)
+   - How military strikes on nuclear facilities could affect global nuclear fuel markets
+   - Risk of radioactive contamination affecting regional sentiment toward nuclear energy
+   - Whether destruction of Iranian enrichment capacity removes a future competitor or creates supply disruption
+
+5. **Risk/Reward Analysis**
+   - ESLT: risk level, conviction, upside/downside targets
+   - CCJ: risk level, conviction, upside/downside targets
+   - UEC: risk level, conviction, upside/downside targets
+   - Key risks for each position
+   - Correlation between these trades and the broader conflict thesis
+   - Entry timing considerations
+
+6. **Historical Precedents**
+   - How Israeli defense stocks performed during past conflicts
+   - How uranium stocks performed during geopolitical crises (2022 Russia-Ukraine, 2011 Fukushima inverse, 2007 uranium bubble)
+   - Market reaction patterns: immediate spike vs. sustained move
+
+7. **All source URLs for claims made** — provide specific URLs for financial data, stock prices, uranium prices, company fundamentals, and analyst estimates.
+
+8. **Open questions or areas needing further investigation** — what aspects of the Israeli defense and nuclear/uranium trade theses would benefit from additional research?
+
+Focus on accuracy and cite your sources. Provide specific numbers, dates, and percentages wherever possible rather than vague generalizations.

@@ -7,9 +7,11 @@ description: Use when the user wants to deeply research a topic using AI deep re
 
 ## Overview
 
-Orchestrates a multi-phase deep research workflow. Creates a structured research session, discovers initial topics with the user, dispatches parallel `deep-research` subagents, and synthesizes final outputs with citations.
+Orchestrates a multi-phase deep research workflow. Creates a structured research session, discovers initial topics with the user, dispatches parallel `deep-research` subagents, and synthesizes final outputs with citations. The synthesizer triages follow-up questions — resolving targeted lookups inline and only escalating broad topics to full deep research.
 
 Uses TODO.md as a work queue and LOG.md as an audit trail. Research terminates when no new relevant, non-redundant questions remain.
+
+**Timestamps:** Every LOG.md entry uses `{ISO8601 UTC}` format. You MUST get the actual current time by running `date -u +"%Y-%m-%dT%H:%M:%SZ"` via Bash before writing any log entry. Never fabricate or estimate timestamps.
 
 ## When to Use
 
@@ -58,7 +60,7 @@ Uses TODO.md as a work queue and LOG.md as an audit trail. Research terminates w
    ├── research/
    └── outputs/
    ```
-3. Ask the user: "What would you like the final output to look like?" Write their response into `DESIRED_OUTPUT.md`.
+3. Enter into plan mode. Ask the user: "What would you like the final output to look like?". Iterate on them and write the final output into `DESIRED_OUTPUT.md`.
 4. Read `config.yml` from the project root for settings. See inline comments in that file for available options. Never modify this file — it is user-managed.
 5. Initialize LOG.md from the template in `references/LOG_TEMPLATE.md`. Record session start.
 6. Initialize TODO.md from the template in `references/TODO_TEMPLATE.md`.
@@ -135,10 +137,27 @@ INSTRUCTIONS:
 3. For each open question:
    a. Relevance check: Does it relate to DESIRED_OUTPUT? Be strict — only questions that would materially improve the final output.
    b. Redundancy check: Is it already in CURRENT TODO (checked or unchecked)? Already covered by a COMPLETED RESEARCH abstract? Substantially similar to an existing item? If so, skip.
-4. For each relevant, non-redundant question, append to TODO.md:
-   - [ ] {question as research topic title} | {one-sentence description} | source: {slug}
-5. Append to LOG.md:
-   [{ISO8601 UTC}] Synthesis of {slugs}: {N} open questions found, {M} added to TODO (filtered {N-M} as irrelevant/redundant)
+   c. If filtered (irrelevant or redundant), update the open question's status in research/{slug}/SUMMARY.md:
+      - Change `**Status:** Open` to `**Status:** Filtered`
+      - Add reason on the next line: `{reason — irrelevant to desired output / redundant with {existing-slug}}`
+   d. If relevant and non-redundant, **triage**: Is this a targeted, fact-based question answerable with 1-3 web searches? Or is it a broad, multi-faceted topic requiring deep investigation?
+
+4. **Quick research** (targeted questions — e.g., specific financial metrics, single-source lookups, factual data points):
+   a. Use WebSearch to find the answer.
+   b. Write raw findings to `research/{slug}/QUICK_{question-slug}.md` with the search results, key data points, and source URLs.
+   c. Update the open question's status in `research/{slug}/SUMMARY.md`:
+      - Change `**Status:** Open` to `**Status:** Resolved (quick research)`
+      - Add summary on the next line: `{1-2 sentence summary of finding}. See [details](./QUICK_{question-slug}.md).`
+   d. Do NOT add to TODO.md.
+
+5. **Deep research** (broad, multi-faceted questions requiring comprehensive investigation):
+   a. Append to TODO.md: `- [ ] {question as research topic title} | {one-sentence description} | source: {slug}`
+   b. Update the open question's status in `research/{slug}/SUMMARY.md`:
+      - Change `**Status:** Open` to `**Status:** Escalated to deep research`
+      - Add reason on the next line: `{brief reason}. Added to TODO.`
+
+6. Append to LOG.md:
+   [{ISO8601 UTC}] Synthesis of {slugs}: {N} open questions found, {Q} resolved via quick research, {D} escalated to deep research, {F} filtered ({reason breakdown})
 All file paths within the session are relative to SESSION_DIR.
 ```
 
@@ -172,15 +191,16 @@ All file paths within the session are relative to SESSION_DIR.
 - **Exceeding `max_parallel_agents`.** Never dispatch more deep-research subagents than the config allows.
 - **Writing outputs without citations.** Every factual claim must trace back to a deep research source.
 - **Skipping the synthesizer step.** Every batch of completed deep-research must be followed by a synthesizer dispatch to evaluate open questions.
+- **Escalating targeted questions to deep research.** If a question can be answered with 1-3 web searches (e.g., "What is XOM's EPS sensitivity per $10/bbl oil?"), the synthesizer should resolve it inline via quick research rather than dispatching an expensive deep-research subagent.
 
 ## Red Flags
 
-| Signal                                     | Action                                                           |
-| ------------------------------------------ | ---------------------------------------------------------------- |
+| Signal                                       | Action                                                           |
+| -------------------------------------------- | ---------------------------------------------------------------- |
 | TODO.md exceeds `max_todo_items` (skip if 0) | Pause, log warning, ask user whether to continue or narrow scope |
-| Same topic appears researched twice in LOG | Redundancy check failed -- investigate before continuing         |
-| 10+ research rounds with no convergence    | Ask user if research scope should be narrowed                    |
-| Subagent fails 3 times on same topic       | Mark `[!] FAILED`, log it, move on                               |
+| Same topic appears researched twice in LOG   | Redundancy check failed -- investigate before continuing         |
+| 10+ research rounds with no convergence      | Ask user if research scope should be narrowed                    |
+| Subagent fails 3 times on same topic         | Mark `[!] FAILED`, log it, move on                               |
 
 ## Integration
 

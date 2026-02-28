@@ -1,0 +1,44 @@
+Research the following topic in depth:
+
+TOPIC: Historical Precedents & Market Patterns — How S&P 500, sectors, and specific stocks performed during Gulf War, Iraq War, 2020 Iran tensions, 2023 Hamas conflict
+
+CONTEXT: This research is part of a larger investigation into stock trading opportunities arising from an Iran-US-Israel military conflict scenario. The final output will be an interactive HTML file with trade cards for stock recommendations. Each card needs a "Historical precedent" field with specific performance data from past conflicts.
+
+Please provide:
+
+1. **S&P 500 broad market performance** during each of these conflicts:
+   - Gulf War (Aug 1990 invasion through Feb 1991 liberation)
+   - Iraq War (Mar 2003 invasion through 2004)
+   - 2020 Iran tensions (Jan 2020 Soleimani strike)
+   - 2023 Hamas-Israel conflict (Oct 7, 2023 onward)
+
+   For each, provide: Day 1 return, 1-week, 1-month, 3-month, and 12-month returns.
+
+2. **Defense & Aerospace sector performance** (LMT, RTX/RTN, NOC, GD, LHX, BA) during each conflict:
+   - Day 1 return, 1-week, 1-month, 3-month, 12-month returns for each stock
+   - Which defense stocks outperformed vs underperformed
+
+3. **Energy & Oil sector performance** (XOM, CVX, OXY, COP, HAL, SLB) during each conflict:
+   - Oil price movements (WTI/Brent) with specific % changes
+   - Day 1 return, 1-week, 1-month, 3-month, 12-month returns for each stock
+   - How quickly oil spikes reversed
+
+4. **Cybersecurity sector performance** (PANW, CRWD, FTNT, NET, ZS) during 2020 Iran tensions and 2023 Hamas conflict:
+   - Day 1 return, 1-week, 1-month, 3-month returns
+
+5. **Gold & Precious Metals performance** (GLD, GDX, NEM, GOLD/ABX) during each conflict:
+   - Gold spot price movements
+   - Day 1 return, 1-week, 1-month, 3-month, 12-month returns
+
+6. **Key patterns and trading insights:**
+   - "Buy the invasion, sell the peace" pattern — when exactly did markets bottom?
+   - How many trading days after conflict start did the market bottom?
+   - Sector rotation patterns: which sectors peaked first, which had sustained runs?
+   - False breakout patterns — sectors that spiked and immediately reversed
+
+7. **Optimal entry/exit timing:**
+   - Best entry points relative to conflict escalation
+   - How long defense/energy premiums typically lasted
+   - Historical drawdown data for each sector during conflicts
+
+Please cite all sources with URLs. Include specific dates, prices, and percentage returns wherever possible.

@@ -7,7 +7,7 @@
 #   "openai"  - OpenAI Deep Research API only
 #   "random"  - Randomly pick gemini or openai for each topic
 #   "all"     - Run both APIs per topic (doubles cost, cross-validates)
-deep_research_api: "all"
+deep_research_api: "gemini"
 
 # Maximum number of deep-research subagents running concurrently.
 # Higher = faster but more API calls and costs.

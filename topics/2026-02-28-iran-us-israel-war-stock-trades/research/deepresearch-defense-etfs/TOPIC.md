@@ -1,0 +1,37 @@
+# Defense ETFs vs Individual Stock Picks
+
+## API
+
+all
+
+## Prompt
+
+Research the following topic in depth:
+
+TOPIC: Defense ETFs vs Individual Stock Picks — ITA, PPA, XAR Composition and Boeing Drag
+
+CONTEXT: This research is part of a larger investigation into stock trade ideas stemming from an Iran–US/Israel war outbreak. We are building an interactive static site with trade cards, theses, and citations. We have already identified individual defense stock picks (LMT, RTX, NOC, GD, LHX) with strong backlogs ($700B+ combined) and P/E ratios of 22-40x. Now we need to evaluate whether defense ETFs offer a better or complementary vehicle for the trade.
+
+Please provide:
+
+1. **ETF Composition Analysis**: For each of ITA (iShares US Aerospace & Defense), PPA (Invesco Aerospace & Defense), and XAR (SPDR S&P Aerospace & Defense), provide:
+   - Top 10 holdings with percentage weightings
+   - Total number of holdings
+   - Expense ratio
+   - AUM (assets under management)
+   - Index methodology (market-cap weighted vs equal-weighted vs modified)
+
+2. **Boeing Drag Problem**: Boeing (BA) weighting in each ETF, and analysis of how BA's commercial aviation exposure (which is hurt by war/conflict via reduced air travel, supply chain disruptions) dilutes the defense upside thesis. Quantify the drag if possible.
+
+3. **YTD and Recent Performance**: YTD 2026 performance of each ETF, plus performance during the October 2023 Hamas-Israel conflict period and any other recent geopolitical events for comparison.
+
+4. **Pure-Play Defense Exposure**: What percentage of each ETF is truly "pure defense" vs commercial aerospace, airlines, or other non-defense holdings? Which ETF has the highest pure-defense concentration?
+
+5. **ETF vs Individual Picks**: For an Iran war trade specifically, compare the risk/reward of:
+   - Buying a defense ETF (diversification, lower single-stock risk, but Boeing/commercial drag)
+   - Buying individual defense stocks (NOC, GD, LMT, RTX, LHX — higher conviction, pure defense, but concentrated risk)
+   - A blended approach
+
+6. **Key data points needed for trade cards**: Entry price levels, target prices or upside %, risk factors, and suggested position sizing for ETF-based trade recommendations.
+
+Focus on accuracy and cite your sources. Include all source URLs for claims made.

@@ -1,0 +1,22 @@
+# Quick Research: Cruise Line Itinerary Exposure to Conflict Zones
+
+## Question
+What is the specific Eastern Mediterranean, Red Sea, and Arabian Gulf route exposure for RCL, CCL, and NCLH, and how does the Iran-US/Israel conflict affect their operations?
+
+## Findings
+- **All three major cruise operators have already pulled out of the Red Sea, Suez Canal transit, and most Middle East ports.** Since the Houthi attacks began in late 2023, Royal Caribbean (RCL), Carnival Corp (CCL), and Norwegian Cruise Line Holdings (NCLH) have cancelled or rerouted virtually all Red Sea and Arabian Gulf itineraries. World cruises from multiple brands (Princess, MSC, etc.) now route via the Cape of Good Hope instead of the Suez Canal. This means the direct operational disruption from a new Iran-US/Israel escalation is limited -- the rerouting has already occurred.
+- **Eastern Mediterranean exposure remains significant, particularly for summer 2026 seasons.** RCL, CCL, and NCLH all operate extensive Mediterranean programs (Greece, Turkey, Italy, Croatia) that represent a meaningful share of their premium itinerary revenue. While Israel port calls (Haifa, Ashdod) have been cancelled since late 2023, Eastern Mediterranean ports like Greek islands, Turkey (Kusadasi, Istanbul), and Cyprus remain active. A wider Iran-Israel conflict could threaten these itineraries if the conflict zone expands, forcing additional cancellations or reroutes to Western Mediterranean only.
+- **NCLH has been the most visibly impacted so far.** Norwegian Cruise Line cancelled over 40 sailings across the 2025-2026 season due to redeployment away from conflict zones, affecting ships like Norwegian Breakaway, Bliss, and Encore. These ships were redirected to Caribbean and Bahamas itineraries -- lower-yield routes compared to the premium Eastern Mediterranean and Middle East products they replaced.
+- **Insurance costs for conflict-zone transits have spiked dramatically.** War risk insurance for Red Sea transits jumped from 0.7-1% of hull value to 2%, meaning a single transit could cost an additional $5 million in insurance for a $500 million cruise ship. This makes any return to the region economically prohibitive even before safety considerations.
+- **Net financial impact is moderate but concentrated in yield compression.** The primary financial risk is not direct route cancellation (already priced in) but rather: (a) if conflict escalation forces cancellation of broader Eastern Mediterranean summer programs, which are high-yield and heavily booked; (b) redeployment to lower-yield Caribbean routes compresses per-diem revenue; and (c) consumer sentiment deterioration causing booking slowdowns for any Europe-adjacent itineraries. CCL has the largest absolute fleet exposure to Mediterranean routes, RCL has the highest premium positioning at risk, and NCLH is the most operationally disrupted to date.
+
+## Sources
+1. [Cruise Critic - Red Sea Attacks Lead to More Canceled Cruises in Middle East](https://www.cruisecritic.com/news/cruise-lines-start-to-cancel-middle-east-itineraries)
+2. [AFAR - Cruise Lines Begin to Cancel Stops & Cruises in Middle East](https://www.afar.com/magazine/cruise-lines-begin-to-cancel-stops-cruises-in-middle-east)
+3. [Travel Market Report - Norwegian Cruise Line Cancels 2025 & 2026 Sailings](https://www.travelmarketreport.com/cruises/articles/norwegian-cruise-line-cancels-another-round-of-2025-2026-sailings)
+4. [TravelPulse - Norwegian Cancels Months of 2025-2026 Sailings for Three Ships](https://www.travelpulse.com/news/cruise/norwegian-cruise-lines-cancels-months-of-2025-2026-sailings-for-three-ships)
+5. [Cruise Arabia - How Israel-Iran Conflict Escalation Could Impact Cruise Industry](https://cruise-arabia.com/2025/06/16/how-israel-iran-conflict-escalation-could-impact-middle-east-cruise-industry/)
+6. [MSC Cruises Drops Middle East Leg from 2026 World Cruise](https://cruise-arabia.com/2025/08/18/msc-cruises-drops-middle-east-leg-from-2026-world-cruise-amid-ongoing-conflicts/)
+7. [The Adept Traveler - Red Sea Security Reroutes 2026 World Cruises](https://adept.travel/news/2025-11-28-red-sea-security-reroutes-cruises)
+8. [Cruisington Times - Cruise Lines Reroute to Avoid Israeli Ports](https://cruisington.com/cruise-lines-reroute-to-avoid-israeli-ports/)
+9. [MARAD Advisory 2025-012 - Red Sea, Gulf of Aden, Persian Gulf](https://www.maritime.dot.gov/msci/2025-012-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-persian-gulf-and-somali-basin)

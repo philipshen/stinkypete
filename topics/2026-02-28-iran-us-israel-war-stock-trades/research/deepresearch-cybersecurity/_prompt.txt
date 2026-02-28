@@ -1,0 +1,22 @@
+Research the following topic in depth:
+
+TOPIC: Cybersecurity Beneficiaries — Iran's APT capabilities, expected cyber escalation, and which cyber stocks (CRWD, PANW, FTNT, ZS) benefit most from government/enterprise spending surge
+
+CONTEXT: This research is part of a larger investigation into Iran-US/Israel war stock trades. The final output is an interactive HTML file with trade cards for various sectors affected by an Iran-US/Israel military conflict. The cybersecurity sector card should cover CrowdStrike, Palo Alto Networks, Fortinet, Zscaler and other relevant cyber stocks that would benefit from increased government/enterprise cybersecurity spending driven by Iranian cyber escalation.
+
+Please provide:
+1. A comprehensive analysis of Iran's APT (Advanced Persistent Threat) capabilities, including known groups (APT33/Elfin, APT34/OilRig, APT35/Charming Kitten, MuddyWater, etc.), their historical targets, and their evolution in sophistication
+2. Historical precedent for cyber escalation during US-Iran tensions (e.g., post-Soleimani, Stuxnet retaliation, attacks on Saudi Aramco, Albanian government attacks)
+3. Expected cyber escalation scenarios in a full-scale Iran-US/Israel military conflict — likely targets (critical infrastructure, financial systems, energy sector, government networks)
+4. Analysis of which cybersecurity companies (CRWD, PANW, FTNT, ZS, and others) are best positioned to benefit from:
+   - Increased US government cybersecurity spending (federal contracts, CISA mandates)
+   - Enterprise spending surge driven by heightened threat environment
+   - Specific technical capabilities relevant to Iranian TTPs (tactics, techniques, procedures)
+5. Revenue exposure, government contract positions, and competitive advantages for each major cyber stock
+6. Historical stock performance of cybersecurity companies during past geopolitical crises and cyber escalation events
+7. Risk factors — could a major breach hurt a specific vendor? Valuation concerns? Competitive dynamics?
+8. Key risks and bear cases for the cybersecurity trade thesis
+9. All source URLs for claims made
+10. A list of open questions or areas that need further investigation
+
+Focus on accuracy and cite your sources.

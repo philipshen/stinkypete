@@ -1,0 +1,66 @@
+Research the following topic in depth:
+
+TOPIC: Defense & Aerospace Stocks — Historical Performance, Current Valuations, and Upside Potential from an Iran-US/Israel War
+
+CONTEXT: This research is part of a larger investigation into stock trade ideas stemming from a war between Iran and the United States + Israel. The final output will be an interactive HTML site with trade cards for defense/aerospace stocks including investment theses, risk/reward analysis, historical precedents, and citations. The defense/aerospace sector is a primary focus — specifically Lockheed Martin (LMT), RTX Corporation (RTX, formerly Raytheon), Northrop Grumman (NOC), General Dynamics (GD), and L3Harris Technologies (LHX).
+
+Please provide a comprehensive analysis covering:
+
+1. **Historical Performance During Middle East Conflicts**
+   - How did LMT, RTX (and legacy Raytheon), NOC, GD, and LHX (and legacy L3/Harris) perform during:
+     - Gulf War (1990-1991)
+     - Iraq War (2003-2011)
+     - 2020 US-Iran tensions (Soleimani strike, January 2020)
+     - 2023-2024 Hamas-Israel conflict and Houthi Red Sea attacks
+   - Provide specific percentage moves and timeframes where possible
+   - How quickly did defense stocks rally after conflict onset vs. when did they peak?
+   - Did defense stocks sustain gains or give them back after initial spike?
+
+2. **Current Valuations and Financial Position (as of early 2026)**
+   - Current stock prices, P/E ratios, EV/EBITDA for each of the 5 stocks
+   - Revenue and earnings growth trends
+   - Order backlogs and book-to-bill ratios
+   - Free cash flow yields
+   - Dividend yields and buyback programs
+   - How do current valuations compare to historical averages?
+
+3. **Order Backlogs and Contract Pipeline**
+   - Total backlog for each company (dollar amounts)
+   - Key programs and contracts relevant to Middle East operations:
+     - Missile defense systems (THAAD, Patriot, Iron Dome)
+     - Fighter jets (F-35, F-16)
+     - Munitions and precision-guided weapons
+     - Naval vessels and submarine programs
+     - C4ISR and electronic warfare systems
+   - Recent contract wins or pending awards
+   - Foreign military sales (FMS) pipeline, especially to Gulf states and Israel
+
+4. **Iran War-Specific Upside Catalysts**
+   - Which specific weapons systems and platforms would see accelerated orders?
+   - Munitions restocking needs (JDAMs, Tomahawks, air-to-air missiles)
+   - Missile defense spending (Patriot, THAAD, Aegis deployments)
+   - Intelligence, surveillance, and reconnaissance (ISR) spending
+   - Potential for supplemental defense appropriations by Congress
+   - FMS acceleration to Gulf allies (Saudi Arabia, UAE, etc.)
+   - How quickly can defense companies ramp production?
+
+5. **Risk Factors**
+   - Valuation risk — are these stocks already priced for conflict?
+   - Supply chain constraints limiting production ramp
+   - Political risks (defense spending cuts in future administrations)
+   - Execution risk on major programs (cost overruns, delays)
+   - Duration risk — what happens if conflict is short-lived?
+   - Market-wide selloff risk overwhelming sector tailwinds
+
+6. **Investment Thesis and Price Targets**
+   - Bull case, base case, and bear case for each stock
+   - Which stock has the best risk/reward profile for an Iran conflict?
+   - Ranking of the 5 stocks by conviction level
+   - Suggested entry points and timeframes
+   - Comparison: individual stocks vs. defense ETFs (ITA, PPA, XAR)
+
+7. **All source URLs for claims made** — provide specific URLs for financial data, historical performance figures, backlog numbers, and analyst estimates.
+
+8. **Open questions or areas needing further investigation** — what aspects of the defense/aerospace trade thesis would benefit from additional research?
+
+Focus on accuracy and cite your sources. Provide specific numbers, dates, and percentages wherever possible rather than vague generalizations.

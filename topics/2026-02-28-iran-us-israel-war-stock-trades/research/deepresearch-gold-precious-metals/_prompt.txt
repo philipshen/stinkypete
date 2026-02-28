@@ -1,0 +1,51 @@
+Research the following topic in depth:
+
+TOPIC: Gold & Precious Metals — Safe-Haven Demand, Mining Stocks, and ETFs in the Context of an Iran-US/Israel War
+
+CONTEXT: This research is part of a larger investigation into stock trade ideas arising from a war between Iran and the United States + Israel. The final output is an interactive HTML page with trade cards for specific tickers. We need actionable trade ideas for the Gold/Precious Metals sector specifically.
+
+Please provide a comprehensive analysis covering ALL of the following:
+
+1. **Current Gold Market Dynamics (as of late February 2026)**
+   - Current gold price level (reportedly above $5,200/oz) and what has driven it to these levels
+   - Historical gold price performance during Middle East conflicts (1990 Gulf War, 2003 Iraq War, 2020 Iran-US tensions, 2023 Hamas-Israel conflict)
+   - How much further upside is realistic in a full-scale Iran war scenario? Price targets from major banks and analysts.
+   - Central bank gold buying trends and how they factor into the current environment
+
+2. **Gold Mining Stocks vs. Gold ETFs**
+   - Compare the investment case for gold mining stocks (NEM - Newmont, GOLD - Barrick Gold, AEM - Agnico Eagle Mines) versus gold ETFs (GLD, IAU, SGOL)
+   - Current valuations (P/E, EV/EBITDA, P/NAV) for NEM, GOLD, and AEM
+   - All-in sustaining costs (AISC) for each major miner and how current gold prices translate to profit margins
+   - Historical beta of mining stocks vs. gold price — do miners outperform gold in rallies? By how much?
+   - Which miner has the best production growth profile, lowest geopolitical risk in their mine portfolio, and strongest balance sheet?
+   - Any junior/mid-tier miners (e.g., KGC - Kinross, WPM - Wheaton Precious Metals streaming) worth considering?
+
+3. **Silver as an Industrial + Safe Haven Play**
+   - Current silver price and gold-to-silver ratio
+   - Silver's dual role: safe haven demand + industrial demand (solar panels, electronics, military applications)
+   - Would an Iran war boost or hurt silver's industrial demand component?
+   - Key silver stocks or ETFs: SLV, PAAS (Pan American Silver), AG (First Majestic), SIL (silver miners ETF)
+   - Silver mining stock valuations and cost structures
+
+4. **Specific Trade Recommendations**
+   For EACH of the following tickers, provide enough detail for a trade card:
+   - **NEM (Newmont)**: Investment thesis, current price, upside/downside targets, key risks, risk level (low/medium/high), conviction (high/medium/speculative)
+   - **GOLD (Barrick Gold)**: Same detail
+   - **AEM (Agnico Eagle)**: Same detail
+   - **GLD (SPDR Gold Shares ETF)**: Same detail — as a lower-risk alternative
+   - **SLV (iShares Silver Trust)**: Same detail — silver exposure
+   - **WPM (Wheaton Precious Metals)**: Same detail — streaming/royalty model as differentiated play
+   - Any additional tickers you think are compelling
+
+5. **Risk Factors**
+   - What would cause gold to decline even during a war? (e.g., quick resolution, deflationary shock, margin calls forcing liquidation)
+   - Mining-specific risks: operational disruptions, rising input costs (diesel, explosives), labor issues
+   - Currency effects: if USD strengthens as safe haven, does that cap gold upside?
+   - Are current gold prices already pricing in significant geopolitical risk?
+
+6. **Historical Precedent**
+   - Gold price action in the first 30/60/90 days of past Middle East conflicts
+   - When is the optimal entry point — before, during, or after the initial shock?
+   - How did gold miners specifically perform vs. gold bullion in these periods?
+
+Cite all sources with URLs. Include analyst reports, financial data providers, and news sources where possible.
