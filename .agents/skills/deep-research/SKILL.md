@@ -123,15 +123,12 @@ Read through all raw output files carefully. When both `RAW_GEMINI_OUTPUT.md` an
 ## Open Questions
 
 ### {Question 1}
+
 **Status:** Open
 
 ### {Question 2}
+
 **Status:** Open
-
-## Primary Sources
-
-1. [{title}]({url})
-2. [{title}]({url})
 ```
 
 ### Step 7: Final Log Entry

@@ -54,16 +54,18 @@ Uses TODO.md as a work queue and LOG.md as an audit trail. Research terminates w
 2. Create the full structure:
    ```
    topics/{yyyy-mm-dd}-{slug}/
+   ├── EXIT_CASE.md
    ├── DESIRED_OUTPUT.md
    ├── LOG.md
    ├── TODO.md
    ├── research/
    └── outputs/
    ```
-3. Enter into plan mode. Ask the user: "What would you like the final output to look like?". Iterate on them and write the final output into `DESIRED_OUTPUT.md`.
-4. Read `config.yml` from the project root for settings. See inline comments in that file for available options. Never modify this file — it is user-managed.
-5. Initialize LOG.md from the template in `references/LOG_TEMPLATE.md`. Record session start.
-6. Initialize TODO.md from the template in `references/TODO_TEMPLATE.md`.
+3. Enter plan mode. Ask the user: "What would make the research complete? Define the criteria for when we have enough information." The exit case must be **concrete and evaluable** — not vague ("when research is good enough") but specific and checkable (e.g., "every sector has at least N recommendations with price targets, risk/reward assessments, and citations"). Propose a default based on the user's topic and let the user refine it. Write the agreed criteria into `EXIT_CASE.md`.
+4. Ask the user: "What would you like the final output to look like?". The exit case defines what information is needed; this defines how to present it. Iterate with the user and write the final output description into `DESIRED_OUTPUT.md`.
+5. Read `config.yml` from the project root for settings. See inline comments in that file for available options. Never modify this file — it is user-managed.
+6. Initialize LOG.md from the template in `references/LOG_TEMPLATE.md`. Record session start.
+7. Initialize TODO.md from the template in `references/TODO_TEMPLATE.md`.
 
 ### Phase 2: Root Topic Discovery
 
@@ -79,8 +81,46 @@ Repeat until TODO.md has no unchecked items:
 
 1. Read TODO.md. Collect all `- [ ]` items. (Treat `- [~]` items from interrupted runs as unchecked too.)
 2. If none remain, proceed to Phase 4.
-3. Select up to `max_parallel_agents` items (from project root config.yml). Mark them `- [~]` in TODO.md.
-4. **Dispatch deep-research subagents in parallel.** For each topic, launch an Agent with `subagent_type: "general-purpose"` and paste the following context directly (do NOT tell the subagent to read files):
+3. **Exit case check.** Before dispatching any deep-research subagents, dispatch an exit case evaluator subagent to determine whether the research is already sufficient. Launch an Agent with `subagent_type: "general-purpose"` and paste the following context:
+
+```
+You are an exit case evaluator. Decide whether the research is sufficient to produce the desired output, or whether the remaining TODO items must be completed first.
+
+SESSION_DIR: {path}
+PROJECT_ROOT: {path}
+
+EXIT_CASE:
+{full contents of EXIT_CASE.md}
+
+DESIRED_OUTPUT:
+{full contents of DESIRED_OUTPUT.md}
+
+REMAINING TODO ITEMS:
+{list of unchecked items from TODO.md}
+
+COMPLETED RESEARCH (abstracts only):
+{for each completed research: slug + Abstract from SUMMARY.md}
+
+INSTRUCTIONS:
+1. Read the EXIT_CASE criteria carefully.
+2. Evaluate each criterion against the completed research.
+3. For each remaining TODO item, assess: would completing this materially change whether the exit case is met?
+4. Return your verdict as the FIRST line of your response:
+   - `VERDICT: EXIT` — if the exit case is satisfied with current research
+   - `VERDICT: CONTINUE` — if completing remaining TODOs is necessary to meet the exit case
+5. Follow with a brief explanation (2-4 sentences) of your reasoning.
+```
+
+- If the verdict is **EXIT**:
+  - Log: `[{ISO8601 UTC}] Exit case satisfied. Skipping {N} remaining TODO items. Proceeding to Phase 4.`
+  - Mark all remaining `- [ ]` items as `- [s] SKIPPED (exit case satisfied)` in TODO.md.
+  - Proceed directly to Phase 4.
+- If the verdict is **CONTINUE**:
+  - Log: `[{ISO8601 UTC}] Exit case not yet satisfied: {brief reason}. Continuing Phase 3.`
+  - Continue with the dispatch flow below.
+
+4. Select up to `max_parallel_agents` items (from project root config.yml). Mark them `- [~]` in TODO.md.
+5. **Dispatch deep-research subagents in parallel.** For each topic, launch an Agent with `subagent_type: "general-purpose"` and paste the following context directly (do NOT tell the subagent to read files):
 
 ```
 You are a deep-research subagent. Use the deep-research skill. Here is your full context:
@@ -109,8 +149,8 @@ Execute the deep-research skill for this topic.
 All file paths within the session (research/, TODO.md, LOG.md, etc.) are relative to SESSION_DIR.
 ```
 
-5. Wait for all dispatched subagents to complete.
-6. **Dispatch synthesizer subagent.** Launch a single Agent with `subagent_type: "general-purpose"` and paste the following context:
+6. Wait for all dispatched subagents to complete.
+7. **Dispatch synthesizer subagent.** Launch a single Agent with `subagent_type: "general-purpose"` and paste the following context:
 
 ```
 You are a research synthesizer subagent. Your job is to evaluate open questions from recently completed deep research and decide which warrant further investigation.
@@ -161,9 +201,9 @@ INSTRUCTIONS:
 All file paths within the session are relative to SESSION_DIR.
 ```
 
-7. Wait for synthesizer to complete.
-8. Mark the batch items `- [x]` in TODO.md. Re-read TODO.md (synthesizer may have appended new items).
-9. Loop back to step 1.
+8. Wait for synthesizer to complete.
+9. Mark the batch items `- [x]` in TODO.md. Re-read TODO.md (synthesizer may have appended new items).
+10. Loop back to step 1.
 
 **Resolving `deep_research_api` config:**
 
