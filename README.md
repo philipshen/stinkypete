@@ -1,6 +1,6 @@
 ![Stinky Pete](https://static.wikia.nocookie.net/pixar/images/9/91/Stinky_Pete.png/revision/latest?cb=20241007180854)
 
-# Auto Researcher
+# Stinky Pete
 
 Recursive deep research powered by Gemini and OpenAI deep research APIs, orchestrated by any agent that can reference the skills (Claude Code, Codex, Gemini, Cursor should all work).
 
@@ -47,9 +47,11 @@ Research naturally terminates when no new relevant, non-redundant questions rema
 
 All the skills are agent-agnostic, so whatever orchestrator you prefer will work. If you really want it to run fully autonomously, pass in flags to make the agent bypass permissions e.g.
 
-`$ gemini --approval-mode=yolo`
-`$ claude --dangerously-skip-permissions`
-`$ codex --dangerously-bypass-approvals-and-sandbox`
+```bash
+gemini --approval-mode=yolo
+claude --dangerously-skip-permissions
+codex --dangerously-bypass-approvals-and-sandbox
+```
 
 ### Explorer
 
