@@ -2,7 +2,7 @@
 
 Recursive deep research powered by Gemini and OpenAI deep research APIs, orchestrated by Claude Code.
 
-Warning: Agent-powered recursive research could burn your tokens
+Warning: recursive API calls are made at the discretion of the agents. This could murder your API usage
 
 ## Overview
 

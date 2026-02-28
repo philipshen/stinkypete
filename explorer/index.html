@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" />
+  <style>
+    body { background: #0f172a; color: #cbd5e1; font-family: system-ui, sans-serif; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; transition: background 0.15s, border-color 0.15s; }
+    .card:hover { background: #263347; border-color: #475569; }
+    .chip { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 9999px; }
+    .prose-dark { color: #cbd5e1; line-height: 1.75; }
+    .prose-dark h1, .prose-dark h2, .prose-dark h3, .prose-dark h4 { color: #f1f5f9; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; }
+    .prose-dark h1 { font-size: 1.75rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
+    .prose-dark h2 { font-size: 1.4rem; }
+    .prose-dark h3 { font-size: 1.15rem; }
+    .prose-dark p { margin: 0.75em 0; }
+    .prose-dark ul, .prose-dark ol { margin: 0.75em 0; padding-left: 1.5em; }
+    .prose-dark li { margin: 0.25em 0; }
+    .prose-dark code { background: #334155; padding: 0.15em 0.35em; border-radius: 0.25rem; font-size: 0.875em; }
+    .prose-dark pre { background: #0f172a; border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; overflow-x: auto; margin: 1em 0; }
+    .prose-dark pre code { background: transparent; padding: 0; }
+    .prose-dark a { color: #60a5fa; text-decoration: underline; }
+    .prose-dark blockquote { border-left: 3px solid #475569; padding-left: 1rem; color: #94a3b8; margin: 1em 0; }
+    .prose-dark table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+    .prose-dark th, .prose-dark td { border: 1px solid #334155; padding: 0.5rem 0.75rem; text-align: left; }
+    .prose-dark th { background: #1e293b; color: #f1f5f9; }
+    .prose-dark strong { color: #f1f5f9; }
+    .file-icon { width: 1rem; height: 1rem; flex-shrink: 0; }
+    .breadcrumb-sep::before { content: '/'; color: #475569; margin: 0 0.25rem; }
+  </style>
+</head>
+<body class="min-h-screen">
+
+<div id="app" class="max-w-5xl mx-auto px-4 py-8">
+  <nav id="breadcrumbs" class="flex items-center gap-1 text-sm mb-6 flex-wrap"></nav>
+  <div id="content"></div>
+</div>
+
+<script>
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+let treeData = [];
+
+// ---------------------------------------------------------------------------
+// Safe DOM helpers
+// ---------------------------------------------------------------------------
+function el(tag, attrs, ...children) {
+  const node = document.createElement(tag);
+  if (attrs) {
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'className') node.className = v;
+      else if (k === 'href') node.setAttribute('href', v);
+      else if (k === 'target') node.setAttribute('target', v);
+      else if (k.startsWith('on')) node.addEventListener(k.slice(2).toLowerCase(), v);
+      else node.setAttribute(k, v);
+    }
+  }
+  for (const child of children) {
+    if (typeof child === 'string') node.appendChild(document.createTextNode(child));
+    else if (child) node.appendChild(child);
+  }
+  return node;
+}
+
+function clearEl(id) {
+  const node = document.getElementById(id);
+  while (node.firstChild) node.removeChild(node.firstChild);
+  return node;
+}
+
+// ---------------------------------------------------------------------------
+// Router
+// ---------------------------------------------------------------------------
+function getHash() { return decodeURIComponent(location.hash.slice(1) || '/'); }
+
+window.addEventListener('hashchange', render);
+
+// ---------------------------------------------------------------------------
+// Data fetching
+// ---------------------------------------------------------------------------
+async function fetchTree() {
+  const res = await fetch('/api/tree');
+  treeData = await res.json();
+}
+
+async function fetchFile(path) {
+  const res = await fetch('/topics/' + path);
+  if (!res.ok) return '*(File not found)*';
+  return await res.text();
+}
+
+// ---------------------------------------------------------------------------
+// TODO.md parser
+// ---------------------------------------------------------------------------
+function parseTodoStatus(todoContent) {
+  if (!todoContent) return null;
+  const lines = todoContent.split('\n');
+  let total = 0, done = 0;
+  for (const line of lines) {
+    if (/^- \[x\]/.test(line)) { total++; done++; }
+    else if (/^- \[[ ~!]\]/.test(line)) { total++; }
+  }
+  if (total === 0) return null;
+  return { done, total };
+}
+
+// ---------------------------------------------------------------------------
+// Prettify names
+// ---------------------------------------------------------------------------
+function prettifyName(name) {
+  let s = name.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  s = s.replace(/^deepresearch-/, '');
+  return s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function extractDate(name) {
+  const m = name.match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : '';
+}
+
+// ---------------------------------------------------------------------------
+// SVG icon helpers (return DOM nodes)
+// ---------------------------------------------------------------------------
+function svgEl(paths, viewBox) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('class', 'file-icon');
+  svg.setAttribute('viewBox', viewBox || '0 0 16 16');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '1.5');
+  for (const d of paths) {
+    const p = document.createElementNS(ns, d.tag || 'path');
+    for (const [k, v] of Object.entries(d)) {
+      if (k !== 'tag') p.setAttribute(k, v);
+    }
+    svg.appendChild(p);
+  }
+  return svg;
+}
+
+function mdIcon() {
+  return svgEl([
+    { tag: 'rect', x: '2', y: '1', width: '12', height: '14', rx: '1.5' },
+    { d: 'M5 5h6M5 8h6M5 11h4' }
+  ]);
+}
+
+function htmlIcon() {
+  return svgEl([
+    { tag: 'rect', x: '2', y: '1', width: '12', height: '14', rx: '1.5' },
+    { d: 'M5 7l2 2-2 2M9 7h2' }
+  ]);
+}
+
+function folderIcon() {
+  return svgEl([
+    { d: 'M2 4.5V12a1.5 1.5 0 001.5 1.5h9A1.5 1.5 0 0014 12V6a1.5 1.5 0 00-1.5-1.5H8L6.5 3H3.5A1.5 1.5 0 002 4.5z' }
+  ]);
+}
+
+// ---------------------------------------------------------------------------
+// Render breadcrumbs (DOM-based)
+// ---------------------------------------------------------------------------
+function renderBreadcrumbs(route) {
+  const bc = clearEl('breadcrumbs');
+
+  const crumbs = [{ label: 'Topics', path: '/' }];
+  const parts = route === '/' ? [] : route.replace(/^\//, '').split('/');
+
+  if (parts[0] === 'topic' && parts[1]) {
+    const topicName = parts[1];
+    crumbs.push({ label: prettifyName(topicName), path: '/topic/' + topicName });
+
+    if (parts[2] === 'research' && parts[3]) {
+      crumbs.push({ label: prettifyName(parts[3]), path: '/topic/' + topicName + '/research/' + parts[3] });
+    }
+
+    const fullPath = parts.join('/');
+    if (fullPath.endsWith('.md')) {
+      crumbs.push({ label: parts[parts.length - 1], path: null });
+    }
+  }
+
+  crumbs.forEach((c, i) => {
+    if (i > 0) {
+      bc.appendChild(el('span', { className: 'breadcrumb-sep' }));
+    }
+    if (c.path && i < crumbs.length - 1) {
+      bc.appendChild(el('a', {
+        href: '#' + encodeURIComponent(c.path),
+        className: 'text-blue-400 hover:text-blue-300 transition-colors'
+      }, c.label));
+    } else {
+      bc.appendChild(el('span', {
+        className: i === crumbs.length - 1 ? 'text-slate-300' : 'text-slate-500'
+      }, c.label));
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Views (DOM-based)
+// ---------------------------------------------------------------------------
+
+async function renderTopicsList() {
+  await fetchTree();
+  const container = clearEl('content');
+
+  if (treeData.length === 0) {
+    const wrapper = el('div', { className: 'text-center py-20 text-slate-500' },
+      el('p', { className: 'text-lg' }, 'No topics found'),
+      el('p', { className: 'text-sm mt-2' }, 'Add research topics to the topics/ directory')
+    );
+    container.appendChild(wrapper);
+    return;
+  }
+
+  const statuses = await Promise.all(treeData.map(async (t) => {
+    if (t.files.includes('TODO.md')) {
+      const content = await fetchFile(t.name + '/TODO.md');
+      return parseTodoStatus(content);
+    }
+    return null;
+  }));
+
+  container.appendChild(el('h1', { className: 'text-2xl font-bold text-white mb-6' }, 'Research Topics'));
+
+  const grid = el('div', { className: 'grid gap-4' });
+
+  treeData.forEach((topic, i) => {
+    const date = extractDate(topic.name);
+    const title = prettifyName(topic.name);
+    const status = statuses[i];
+    const researchCount = topic.research.length;
+    const outputCount = topic.outputs.length;
+
+    const metaItems = [];
+    if (date) metaItems.push(el('span', null, date));
+    metaItems.push(el('span', null, researchCount + ' research topic' + (researchCount !== 1 ? 's' : '')));
+    metaItems.push(el('span', null, outputCount + ' output' + (outputCount !== 1 ? 's' : '')));
+
+    const leftCol = el('div', { className: 'min-w-0' },
+      el('h2', { className: 'text-lg font-semibold text-white truncate' }, title),
+      el('div', { className: 'flex items-center gap-3 mt-2 text-sm text-slate-400' }, ...metaItems)
+    );
+
+    const cardChildren = [leftCol];
+    if (status) {
+      const chipClass = status.done === status.total
+        ? 'chip flex-shrink-0 bg-green-900/50 text-green-400'
+        : 'chip flex-shrink-0 bg-blue-900/50 text-blue-400';
+      cardChildren.push(el('span', { className: chipClass }, status.done + '/' + status.total + ' complete'));
+    }
+
+    const card = el('a', {
+      href: '#' + encodeURIComponent('/topic/' + topic.name),
+      className: 'card block p-5 cursor-pointer'
+    }, el('div', { className: 'flex items-start justify-between gap-4' }, ...cardChildren));
+
+    grid.appendChild(card);
+  });
+
+  container.appendChild(grid);
+}
+
+async function renderTopicDetail(topicName) {
+  await fetchTree();
+  const topic = treeData.find(t => t.name === topicName);
+  const container = clearEl('content');
+
+  if (!topic) {
+    container.appendChild(el('p', { className: 'text-red-400' }, 'Topic not found: ' + topicName));
+    return;
+  }
+
+  container.appendChild(el('h1', { className: 'text-2xl font-bold text-white mb-6' }, prettifyName(topicName)));
+
+  // Metadata files
+  if (topic.files.length > 0) {
+    const section = el('section', { className: 'mb-8' },
+      el('h2', { className: 'text-lg font-semibold text-slate-200 mb-3' }, 'Metadata')
+    );
+    const list = el('div', { className: 'space-y-1' });
+    for (const f of topic.files) {
+      if (f.endsWith('.md')) {
+        const link = el('a', {
+          href: '#' + encodeURIComponent('/topic/' + topicName + '/' + f),
+          className: 'flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors text-slate-300 hover:text-white'
+        }, mdIcon(), document.createTextNode(' ' + f));
+        list.appendChild(link);
+      }
+    }
+    section.appendChild(list);
+    container.appendChild(section);
+  }
+
+  // Research sub-topics
+  if (topic.research.length > 0) {
+    const section = el('section', { className: 'mb-8' },
+      el('h2', { className: 'text-lg font-semibold text-slate-200 mb-3' }, 'Research')
+    );
+    const grid = el('div', { className: 'grid gap-3' });
+    for (const sub of topic.research) {
+      const card = el('a', {
+        href: '#' + encodeURIComponent('/topic/' + topicName + '/research/' + sub.name),
+        className: 'card flex items-center gap-3 p-4 cursor-pointer'
+      },
+        el('span', { className: 'text-slate-400' }, folderIcon()),
+        el('div', { className: 'min-w-0' },
+          el('div', { className: 'font-medium text-slate-200 truncate' }, prettifyName(sub.name)),
+          el('div', { className: 'text-xs text-slate-500' }, sub.files.length + ' file' + (sub.files.length !== 1 ? 's' : ''))
+        )
+      );
+      grid.appendChild(card);
+    }
+    section.appendChild(grid);
+    container.appendChild(section);
+  }
+
+  // Outputs
+  if (topic.outputs.length > 0) {
+    const section = el('section', { className: 'mb-8' },
+      el('h2', { className: 'text-lg font-semibold text-slate-200 mb-3' }, 'Outputs')
+    );
+    const list = el('div', { className: 'space-y-1' });
+    for (const o of topic.outputs) {
+      if (o.type === 'html') {
+        const link = el('a', {
+          href: '/topics/' + topicName + '/outputs/' + o.name,
+          target: '_blank',
+          className: 'flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors text-blue-400 hover:text-blue-300'
+        }, htmlIcon(), document.createTextNode(' ' + o.name + ' '), el('span', { className: 'text-xs text-slate-500 ml-1' }, '(opens in new tab)'));
+        list.appendChild(link);
+      } else if (o.type === 'md') {
+        const link = el('a', {
+          href: '#' + encodeURIComponent('/topic/' + topicName + '/outputs/' + o.name),
+          className: 'flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors text-slate-300 hover:text-white'
+        }, mdIcon(), document.createTextNode(' ' + o.name));
+        list.appendChild(link);
+      }
+    }
+    section.appendChild(list);
+    container.appendChild(section);
+  }
+}
+
+async function renderResearchDetail(topicName, subName) {
+  await fetchTree();
+  const topic = treeData.find(t => t.name === topicName);
+  const sub = topic?.research.find(r => r.name === subName);
+  const container = clearEl('content');
+
+  if (!sub) {
+    container.appendChild(el('p', { className: 'text-red-400' }, 'Research sub-topic not found'));
+    return;
+  }
+
+  container.appendChild(el('h1', { className: 'text-2xl font-bold text-white mb-2' }, prettifyName(subName)));
+  container.appendChild(el('p', { className: 'text-sm text-slate-500 mb-6' }, topicName + ' / research'));
+
+  // Categorize and order files
+  const summaries = sub.files.filter(f => f.startsWith('SUMMARY'));
+  const topics = sub.files.filter(f => f.startsWith('TOPIC'));
+  const quick = sub.files.filter(f => f.startsWith('QUICK_'));
+  const raw = sub.files.filter(f => f.startsWith('RAW_'));
+  const other = sub.files.filter(f => !summaries.includes(f) && !topics.includes(f) && !quick.includes(f) && !raw.includes(f));
+  const ordered = [...summaries, ...topics, ...quick, ...other, ...raw];
+
+  const list = el('div', { className: 'space-y-1' });
+  for (const f of ordered) {
+    if (f.endsWith('.md')) {
+      const basePath = '/topic/' + topicName + '/research/' + subName + '/' + f;
+      const linkChildren = [mdIcon(), document.createTextNode(' ' + f)];
+
+      if (f.startsWith('SUMMARY')) linkChildren.push(el('span', { className: 'chip bg-green-900/50 text-green-400 ml-2' }, 'Summary'));
+      else if (f.startsWith('TOPIC')) linkChildren.push(el('span', { className: 'chip bg-purple-900/50 text-purple-400 ml-2' }, 'Topic'));
+      else if (f.startsWith('QUICK_')) linkChildren.push(el('span', { className: 'chip bg-amber-900/50 text-amber-400 ml-2' }, 'Quick'));
+      else if (f.startsWith('RAW_')) linkChildren.push(el('span', { className: 'chip bg-slate-700 text-slate-400 ml-2' }, 'Raw'));
+
+      list.appendChild(el('a', {
+        href: '#' + encodeURIComponent(basePath),
+        className: 'flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors text-slate-300 hover:text-white'
+      }, ...linkChildren));
+    }
+  }
+  container.appendChild(list);
+}
+
+async function renderMarkdownFile(filePath) {
+  const content = await fetchFile(filePath);
+  const container = clearEl('content');
+
+  container.appendChild(el('div', { className: 'mb-4' },
+    el('span', { className: 'text-xs font-mono text-slate-500' }, filePath)
+  ));
+
+  // Render markdown with marked, then sanitize with DOMPurify
+  const rawHtml = marked.parse(content);
+  const cleanHtml = DOMPurify.sanitize(rawHtml, {
+    ADD_TAGS: ['pre', 'code'],
+    ADD_ATTR: ['class', 'language']
+  });
+
+  const article = document.createElement('article');
+  article.className = 'prose-dark';
+  article.innerHTML = cleanHtml;
+
+  // Highlight code blocks
+  article.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
+
+  container.appendChild(article);
+}
+
+// ---------------------------------------------------------------------------
+// Main render dispatcher
+// ---------------------------------------------------------------------------
+async function render() {
+  const route = getHash();
+  renderBreadcrumbs(route);
+
+  if (route === '/') return renderTopicsList();
+
+  const mdMatch = route.match(/^\/topic\/([^/]+)\/(.+\.md)$/);
+  if (mdMatch) return renderMarkdownFile(mdMatch[1] + '/' + mdMatch[2]);
+
+  const researchMatch = route.match(/^\/topic\/([^/]+)\/research\/([^/]+)$/);
+  if (researchMatch) return renderResearchDetail(researchMatch[1], researchMatch[2]);
+
+  const topicMatch = route.match(/^\/topic\/([^/]+)$/);
+  if (topicMatch) return renderTopicDetail(topicMatch[1]);
+
+  const container = clearEl('content');
+  container.appendChild(el('p', { className: 'text-slate-500' }, 'Unknown route: ' + route));
+}
+
+// ---------------------------------------------------------------------------
+// SSE live reload
+// ---------------------------------------------------------------------------
+function connectSSE() {
+  const es = new EventSource('/api/events');
+  es.onmessage = () => render();
+  es.onerror = () => {
+    es.close();
+    setTimeout(connectSSE, 3000);
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Init
+// ---------------------------------------------------------------------------
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+  highlight: (code, lang) => {
+    if (lang && hljs.getLanguage(lang)) return hljs.highlight(code, { language: lang }).value;
+    return hljs.highlightAuto(code).value;
+  }
+});
+
+render();
+connectSSE();
+</script>
+</body>
+</html>
