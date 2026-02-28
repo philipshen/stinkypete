@@ -95,3 +95,9 @@ topics/2026-02-28-iran-war-market-effects/
 **Deduplication:** Three layers prevent redundant research — subagent redundancy checks against the log and completed summaries, open-question filtering against existing TODOs, and directory-level slug uniqueness.
 
 **Configuration:** Edit `config.yml` in the project root to control API selection, parallelism, and safety limits. See the inline comments in that file for details.
+
+## TODO
+
+- Follow-on research to drill deeper into existing topics
+- Connections to gated data sources (CrunchBase, ahrefs, stuff like that)
+- More detailed outputs. I suspect level-of-detail might be restricted by context windows - structured plans for creating the output would be simple and might help a lot
