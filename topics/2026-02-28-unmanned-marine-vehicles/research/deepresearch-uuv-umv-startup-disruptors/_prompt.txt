@@ -1,0 +1,53 @@
+Research the following topic in depth:
+
+TOPIC: UUV/UMV Startup Disruptors — Emerging companies challenging incumbents in the unmanned marine vehicle market
+
+CONTEXT: This research is part of a larger investigation into the global Unmanned Marine Vehicle (UMV) market, covering both Unmanned Underwater Vehicles (UUVs) and Unmanned Surface Vehicles (USVs). We have already researched the top-selling military UUVs (dominated by HII REMUS, Atlas Elektronik SeaFox), top military and commercial USVs (Saildrone, OceanAlpha, Ukraine's Magura V5), and commercial/scientific UMVs (Teledyne Slocum Glider, OceanAlpha). Now we need to understand the startup ecosystem disrupting this space.
+
+Please provide:
+
+1. A comprehensive analysis of startup companies disrupting the UUV/UMV market, including but not limited to:
+   - Terradepth (autonomous submarine data platforms)
+   - Blueye Robotics (consumer/prosumer underwater drones)
+   - Seasats (persistent ocean monitoring)
+   - Neptune Robotics (underwater inspection)
+   - Bedrock Ocean Exploration (autonomous underwater mapping)
+   - Nauticus Robotics / Nauticus Defense (AI-powered ocean robots)
+   - Exail (formerly ECA Group / iXblue, underwater drones and autonomy)
+   - Forssea Robotics (AI-powered underwater robots)
+   - Planck Aerosystems / maritime drone startups
+   - Houston Mechatronics (underwater robotics, Aquanaut)
+   - Cellula Robotics (hydrogen fuel cell UUVs)
+   - Open Ocean Robotics (autonomous USVs)
+   - Marine Advanced Robotics (WAM-V)
+   - Any other notable startups founded after 2010 that are challenging established players
+
+2. For each startup, provide:
+   - Founding year and headquarters
+   - Total funding raised (venture capital, government grants, contracts)
+   - Key products and their specifications
+   - Target markets (defense, oil & gas, oceanography, aquaculture, etc.)
+   - Notable contracts, deployments, or partnerships
+   - What makes their approach novel or disruptive compared to incumbents
+   - Current development stage (prototype, early production, scaling)
+   - Key personnel (founders, CEO)
+
+3. Analysis of disruptive trends these startups represent:
+   - Software-defined ocean robotics
+   - Data-as-a-Service business models
+   - AI/ML for autonomous navigation and inspection
+   - Democratization of underwater access (lower-cost platforms)
+   - New power/propulsion systems (hydrogen fuel cells, solar, wave energy)
+   - Cloud-connected ocean platforms
+
+4. Market dynamics:
+   - How are incumbents (Kongsberg, HII, L3Harris, Teledyne) responding to startup competition?
+   - Which startups have been acquired by larger companies?
+   - What gaps in the market are startups exploiting?
+   - Estimated total venture capital invested in ocean robotics startups (2015-2025)
+
+5. All source URLs for claims made — include funding announcements, press releases, company websites, news articles, and market reports.
+
+6. A list of open questions or areas needing further investigation.
+
+Focus on accuracy, cite your sources, and distinguish between confirmed facts and estimates.

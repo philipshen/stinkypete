@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unmanned Marine Vehicle (UMV) Market Report 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #050a14;
+  --bg-base: #0a1020;
+  --bg-surface: #0e1a30;
+  --bg-elevated: #132240;
+  --bg-hover: #1a2d52;
+  --accent-cyan: #00c8ff;
+  --accent-cyan-dim: #0080a8;
+  --accent-cyan-glow: rgba(0, 200, 255, 0.15);
+  --accent-orange: #ff6b35;
+  --accent-orange-dim: #c04820;
+  --accent-gold: #f0b040;
+  --accent-green: #00e676;
+  --text-primary: #e4eaf4;
+  --text-secondary: #8090b0;
+  --text-dim: #506080;
+  --border: #1a2a48;
+  --border-light: #243656;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 30px rgba(0,200,255,0.08);
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --grid-color: rgba(0, 200, 255, 0.03);
+  --max-w: 1320px;
+}
+
+[data-theme="light"] {
+  --bg-deep: #f0f2f8;
+  --bg-base: #f6f8fc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-hover: #eef1f8;
+  --accent-cyan: #0070a0;
+  --accent-cyan-dim: #004870;
+  --accent-cyan-glow: rgba(0, 112, 160, 0.08);
+  --accent-orange: #d05020;
+  --accent-orange-dim: #a03810;
+  --accent-gold: #b07800;
+  --accent-green: #00884a;
+  --text-primary: #1a2030;
+  --text-secondary: #506070;
+  --text-dim: #8898a8;
+  --border: #d8dfe8;
+  --border-light: #e4eaf0;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-glow: 0 0 30px rgba(0,112,160,0.05);
+  --grid-color: rgba(0, 112, 160, 0.03);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sonarPing {
+  0% { transform: scale(0.2); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  backdrop-filter: blur(12px);
+}
+.theme-toggle:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 16, 32, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="light"] .nav { background: rgba(246, 248, 252, 0.9); }
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 52px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.nav-brand {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 4px; overflow-x: auto; }
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--text-primary); background: var(--bg-hover); }
+
+.hero {
+  padding: 100px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before, .hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,200,255,0.06);
+  transform: translate(-50%, -50%);
+  animation: sonarPing 4s ease-out infinite;
+}
+.hero::after { animation-delay: 2s; border-color: rgba(0,200,255,0.04); }
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+.hero h1 span { color: var(--accent-cyan); }
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 720px;
+  line-height: 1.7;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+.hero-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.section { padding: 80px 0 40px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-cyan);
+  background: var(--accent-cyan-glow);
+  border: 1px solid rgba(0,200,255,0.2);
+  border-radius: 4px;
+  padding: 4px 10px;
+  letter-spacing: 1px;
+}
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+}
+.section-desc {
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  border-color: var(--accent-cyan-dim);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card:hover::before { opacity: 1; }
+
+.card-rank {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--border);
+  line-height: 1;
+}
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.card-icon.uuv { background: rgba(0,200,255,0.1); color: var(--accent-cyan); }
+.card-icon.usv { background: rgba(0,230,118,0.1); color: var(--accent-green); }
+.card-tags { display: flex; gap: 6px; margin-bottom: 10px; }
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.tag-military { background: rgba(255,107,53,0.12); color: var(--accent-orange); border: 1px solid rgba(255,107,53,0.2); }
+.tag-commercial { background: rgba(0,230,118,0.1); color: var(--accent-green); border: 1px solid rgba(0,230,118,0.15); }
+.tag-scientific { background: rgba(0,200,255,0.1); color: var(--accent-cyan); border: 1px solid rgba(0,200,255,0.15); }
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding-right: 50px;
+}
+.card-manufacturer {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+.card-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.card-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.card-meta-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 3px;
+}
+.card-meta-value {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.card-meta-value.highlight {
+  color: var(--accent-cyan);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.stage-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.stage-production { background: rgba(0,230,118,0.1); color: var(--accent-green); border: 1px solid rgba(0,230,118,0.2); }
+.stage-testing { background: rgba(240,176,64,0.1); color: var(--accent-gold); border: 1px solid rgba(240,176,64,0.2); }
+.stage-development { background: rgba(0,200,255,0.1); color: var(--accent-cyan); border: 1px solid rgba(0,200,255,0.2); }
+.stage-prototype { background: rgba(255,107,53,0.1); color: var(--accent-orange); border: 1px solid rgba(255,107,53,0.2); }
+
+.hm-section { margin-top: 24px; }
+.hm-section h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+.hm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.hm-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.hm-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.hm-table tr:hover td { background: var(--bg-hover); }
+.hm-name { font-weight: 600; }
+.hm-mfg { font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan-dim); }
+.hm-note { color: var(--text-dim); font-style: italic; font-size: 12px; }
+
+.sources-section {
+  padding: 60px 0 100px;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.sources-section h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.source-list {
+  columns: 2;
+  column-gap: 40px;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 2;
+  font-family: var(--font-mono);
+}
+.source-list a { color: var(--text-secondary); text-decoration: none; }
+.source-list a:hover { color: var(--accent-cyan); text-decoration: underline; }
+
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+  .source-list { columns: 1; }
+  .nav-links { display: none; }
+  .hm-table th, .hm-table td { padding: 8px; }
+}
+@media (max-width: 480px) {
+  .card-meta { grid-template-columns: 1fr; }
+  .hero { padding: 80px 0 40px; }
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
+  <span id="theme-label">LIGHT</span>
+</button>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">UMV REPORT</div>
+    <div class="nav-links">
+      <a href="#top-sellers">Top 15</a>
+      <a href="#emerging">Emerging UUVs</a>
+      <a href="#honorable">Honorable Mentions</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-label">Market Intelligence Report &mdash; February 2026</div>
+    <h1>Unmanned Marine Vehicle<br><span>Market Report</span></h1>
+    <p class="hero-subtitle">
+      A comprehensive analysis of the world's most deployed unmanned surface vehicles (USVs) and unmanned underwater vehicles (UUVs), emerging next-generation platforms, and the global procurement landscape reshaping naval warfare and commercial ocean operations.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-value">$5.2B</div>
+        <div class="hero-stat-label">Market Size (2025)</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">8&ndash;9%</div>
+        <div class="hero-stat-label">CAGR Through 2034</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">46%+</div>
+        <div class="hero-stat-label">Defense Revenue Share</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">15+</div>
+        <div class="hero-stat-label">Nations Buying UMVs</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Section 1: Top 15 -->
+<section class="section" id="top-sellers">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">01</span>
+      <h2>Top 15 UMVs by Sales &amp; Deployment</h2>
+    </div>
+    <p class="section-desc reveal">Ranked by estimated total units sold or deployed. Spans military, commercial, and scientific platforms across both surface and underwater domains.</p>
+    <div class="card-grid" id="top-grid"></div>
+  </div>
+</section>
+
+<!-- Section 2: Emerging -->
+<section class="section" id="emerging">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">02</span>
+      <h2>10 Up-and-Coming UUVs</h2>
+    </div>
+    <p class="section-desc reveal">Next-generation unmanned underwater vehicles in development or recently entering service, representing the future of autonomous subsea warfare and exploration.</p>
+    <div class="card-grid" id="emerging-grid"></div>
+  </div>
+</section>
+
+<!-- Section 3: Honorable Mentions -->
+<section class="section" id="honorable">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">03</span>
+      <h2>Honorable Mentions</h2>
+    </div>
+    <p class="section-desc reveal">Notable platforms that didn't make the top lists but deserve recognition for their impact, innovation, or market position.</p>
+    <div class="hm-section reveal">
+      <h3>Top Sellers &mdash; Narrowly Missed</h3>
+      <div style="overflow-x:auto"><table class="hm-table" id="hm-sellers"></table></div>
+    </div>
+    <div class="hm-section reveal" style="margin-top:48px">
+      <h3>Emerging UUVs &mdash; Ones to Watch</h3>
+      <div style="overflow-x:auto"><table class="hm-table" id="hm-emerging"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Sources -->
+<section class="sources-section" id="sources">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">04</span>
+      <h2>Sources &amp; References</h2>
+    </div>
+    <div class="source-list reveal" id="src-list"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">GENERATED VIA AI DEEP RESEARCH &mdash; FEBRUARY 2026 &mdash; DATA SOURCED FROM GEMINI DEEP RESEARCH API</div>
+</footer>
+
+<script>
+/* All data is static and hardcoded. DOM built via safe createElement methods. */
+
+function el(tag, attrs, children) {
+  var e = document.createElement(tag);
+  if (attrs) Object.keys(attrs).forEach(function(k) {
+    if (k === 'text') e.textContent = attrs[k];
+    else if (k === 'cls') e.className = attrs[k];
+    else e.setAttribute(k, attrs[k]);
+  });
+  if (children) children.forEach(function(c) { if (c) e.appendChild(c); });
+  return e;
+}
+
+function txt(t) { return document.createTextNode(t); }
+
+var TOP = [
+  {r:1,n:"OceanAlpha USV Series",m:"OceanAlpha (China)",t:"usv",tg:["commercial"],u:"3,990+",ul:"UNITS DELIVERED",b:"60+ countries; Chinese gov agencies, survey firms worldwide",uc:"Hydrographic survey, water quality monitoring, inland/coastal operations",d:"The world\u2019s largest USV manufacturer by volume, with models ranging from 1m portable boats to 42m large platforms. Aggressive pricing and a broad product line spanning the M40, L25, and SE40 series."},
+  {r:2,n:"Teledyne Slocum Glider",m:"Teledyne Webb Research (USA)",t:"uuv",tg:["scientific","military"],u:"1,275+",ul:"UNITS DELIVERED",b:"NOAA, US Navy, 18+ NATO navies, 100+ academic institutions",uc:"Oceanographic research, ASW data collection, climate monitoring",d:"The workhorse of global oceanography. A buoyancy-driven glider capable of months-long autonomous missions. The new Slocum Sentinel extends capability to multi-year deployments."},
+  {r:3,n:"Atlas Elektronik SeaFox",m:"Atlas Elektronik (Germany)",t:"uuv",tg:["military"],u:"Thousands",ul:"EXPENDABLE UNITS",b:"US Navy, Royal Navy, German Navy, 11+ navies",uc:"One-shot mine disposal, MCM, EOD",d:"The world\u2019s most successful mine disposal system. A fiber-optic guided expendable munition that identifies and destroys sea mines on contact. Recurring revenue through munition replenishment."},
+  {r:4,n:"HII REMUS Series",m:"HII / Kongsberg (USA/Norway)",t:"uuv",tg:["military","commercial"],u:"700+",ul:"VEHICLES SOLD",b:"30 countries, 14 NATO members, US Navy (Lionfish, $347M)",uc:"MCM, hydrographic survey, search & recovery",d:"The gold standard for man-portable military AUVs. Proved itself in Iraq (2003). The US Navy\u2019s Lionfish program (REMUS 300) is worth up to $347M for 200 vehicles."},
+  {r:5,n:"QinetiQ Hammerhead",m:"QinetiQ (UK)",t:"usv",tg:["military"],u:"425+",ul:"UNITS SOLD",b:"Royal Canadian Navy (40+), UK Royal Navy, multinational navies",uc:"Naval target drone, weapons testing, surface warfare training",d:"The highest-volume military USV by historical unit sales. Originally designed as a realistic radar-cross-section target for naval gunnery training across NATO navies."},
+  {r:6,n:"L3Harris Iver AUV",m:"L3Harris Technologies (USA)",t:"uuv",tg:["military","commercial"],u:"375+",ul:"AUVS SHIPPED",b:"US Navy, UK Royal Navy (Project Wilton), survey companies",uc:"Coastal survey, mine hunting, torpedo-tube deployment",d:"A modular, man-portable AUV now in its 4th generation. First AUV to demonstrate submarine torpedo-tube launch and recovery under AUKUS Pillar 2."},
+  {r:7,n:"Liquid Robotics Wave Glider",m:"Liquid Robotics / Boeing (USA)",t:"usv",tg:["commercial","military"],u:"350+",ul:"UNITS DEPLOYED",b:"US Navy, NOAA, oil & gas majors, research institutions",uc:"Persistent ocean monitoring, ISR, meteorological data",d:"A wave-powered USV with up to 1-year endurance at sea, having logged over 3 million nautical miles. Unique propulsion converts wave energy into forward motion."},
+  {r:8,n:"Ukraine Magura V5",m:"SBU / Defence Intelligence (Ukraine)",t:"usv",tg:["military"],u:"Hundreds",ul:"PRODUCED",b:"Ukrainian Navy / SBU",uc:"Maritime strike, anti-ship warfare, naval denial",d:"The most combat-effective USV in history. At ~$273K/unit with 800km range, the Magura V5 has sunk 8 Russian vessels and fundamentally changed global naval doctrine."},
+  {r:9,n:"Sea Machines SM200/SM300",m:"Sea Machines Robotics (USA)",t:"usv",tg:["commercial"],u:"200+",ul:"DEPLOYMENTS",b:"Commercial shipping, US Coast Guard, offshore operators",uc:"Vessel autonomy retrofit, collision avoidance, remote piloting",d:"Rather than building boats, Sea Machines builds autonomy. Their retrofit kits convert existing commercial vessels to autonomous operation \u2014 a uniquely scalable approach."},
+  {r:10,n:"Saildrone Explorer/Voyager",m:"Saildrone (USA)",t:"usv",tg:["commercial","military"],u:"200+",ul:"FLEET BY 2026",b:"NOAA, US Navy 5th Fleet, US Coast Guard, fisheries agencies",uc:"DaaS climate data, fisheries surveys, maritime ISR",d:"Pioneer of the Data-as-a-Service model for ocean intelligence. Wind and solar-powered with 365-day endurance. Producing 1 Voyager per week."},
+  {r:11,n:"VideoRay Defender",m:"VideoRay (USA)",t:"uuv",tg:["military","commercial"],u:"Hundreds",ul:"SYSTEMS SOLD",b:"US Navy ($92.6M IDIQ + $30.7M), Coast Guard, 20+ navies",uc:"EOD, underwater inspection, port security",d:"The standard-issue micro-ROV for military explosive ordnance disposal. Over $120M in US Navy contracts alone. Compact enough for two-person deployment."},
+  {r:12,n:"Kongsberg HUGIN",m:"Kongsberg Maritime (Norway)",t:"uuv",tg:["military","commercial"],u:"100+",ul:"LARGE SYSTEMS",b:"12 navies, Argeo, offshore survey companies, US Navy (DIU)",uc:"Deep-water survey, seabed mapping, military reconnaissance",d:"The premium deep-water AUV standard. HUGIN Endurance offers 15-day endurance at 6,000m depth with shore-to-shore autonomy eliminating the need for a mother ship."},
+  {r:13,n:"Teledyne Gavia",m:"Teledyne Marine (Iceland/USA)",t:"uuv",tg:["commercial","military"],u:"100+",ul:"UNITS DELIVERED",b:"Defense forces, offshore energy, survey companies",uc:"Pipeline inspection, modular survey, environmental monitoring",d:"A highly modular AUV designed for rapid sensor reconfiguration. Users can swap payload sections in the field \u2014 sonar, camera, environmental sensors."},
+  {r:14,n:"Seaber YUCO",m:"Seaber (France)",t:"uuv",tg:["commercial","scientific"],u:"100+",ul:"UNITS IN <4 YEARS",b:"Research institutions, defense forces, survey companies",uc:"Shallow water survey, environmental monitoring, rapid deployment",d:"Spearheading the micro-AUV revolution. Under 10kg and single-person deployable, YUCO has democratized underwater robotics with 100+ units in under 4 years."},
+  {r:15,n:"Saab Double Eagle",m:"Saab (Sweden)",t:"uuv",tg:["military"],u:"70+",ul:"SYSTEMS DELIVERED",b:"Multiple European navies, Asian navies",uc:"MCM (tethered ROV & untethered AUV modes)",d:"A hybrid ROV/AUV operating both tethered (precision mine disposal) and untethered (autonomous survey). Standard equipment on multiple European MCM vessel classes."}
+];
+
+var EMERGING = [
+  {n:"Anduril Ghost Shark",m:"Anduril Industries (Australia/USA)",s:"production",sl:"Entering Service 2026",b:"Royal Australian Navy ($1.1B USD program of record)",uc:"ISR, strike, mine-laying, collaborative autonomy",no:"Largest UUV startup contract ever ($1.12B AUD). 3D-printed hulls via Large Format Additive Manufacturing. Lattice OS enables AI-driven collaborative autonomy. First prototype delivered one year ahead of schedule."},
+  {n:"Boeing Orca XLUUV",m:"Boeing (USA)",s:"testing",sl:"At-Sea Testing",b:"US Navy ($274M for 5 prototypes)",uc:"Clandestine mine-laying, ASW, electronic warfare, ISR",no:"Largest Western UUV at 26m / 85 tons. 34-foot modular payload bay with 8-ton capacity. 6,500nm range enables transoceanic autonomous missions."},
+  {n:"Northrop Grumman Manta Ray",m:"Northrop Grumman (USA)",s:"prototype",sl:"DARPA Transition to Navy",b:"US Navy (DARPA-funded development)",uc:"Persistent seabed surveillance, long-duration ISR",no:"Biomimetic glider with thermal gradient energy harvesting for theoretically unlimited endurance. Can hibernate on the seafloor. Ships in five standard containers."},
+  {n:"Anduril Dive-LD",m:"Anduril Industries (USA)",s:"production",sl:"Replicator Tranche 2",b:"US DoD Replicator initiative, allied navies",uc:"ISR, MCM, ASW, distributed operations",no:"Commercial off-the-shelf XLUUV at ~$2.5M per unit. Rated to 6,000m depth with 10+ day endurance. Selected for DoD Replicator mass-producible undersea autonomy."},
+  {n:"General Atomics MEDUSA",m:"General Atomics / Bluefin Robotics (USA)",s:"development",sl:"Risk Reduction Testing",b:"US Navy ($15.9M base, up to $58M total)",uc:"Clandestine offensive mining, area denial",no:"First expendable torpedo-tube-launched mining UUV. One-way delivery of mines in denied areas \u2014 submarine crews need never enter a minefield."},
+  {n:"MSubs XV Excalibur",m:"MSubs Ltd (UK)",s:"testing",sl:"Royal Navy Trials",b:"UK Royal Navy (Project Cetus, \u00a315.4M)",uc:"ASW barrier operations, seabed warfare, ISR",no:"Europe\u2019s largest uncrewed submersible at 12m / 17 tonnes. Fits in a standard shipping container. Remarkably low cost at \u00a315.4M."},
+  {n:"Naval Group French UCUV",m:"Naval Group (France)",s:"development",sl:"Demonstrator Ordered",b:"French Navy (Marine Nationale)",uc:"Underwater combat, ASW, autonomous strike",no:"Explicitly designated an Unmanned Combat Underwater Vehicle \u2014 one of the first programs to use this classification. Controlled Decision-making Autonomy for comms-denied environments."},
+  {n:"Cellula Robotics Solus-XR",m:"Cellula Robotics (Canada)",s:"testing",sl:"Sea Trials Underway",b:"Royal Australian Navy (SeaWolf), Arctic research",uc:"Arctic surveillance, extreme-endurance ISR",no:"Hydrogen fuel cell propulsion enables 5,000km range \u2014 dramatically exceeding battery-electric UUVs. MASS compliance achieved Dec 2024."},
+  {n:"Hanwha MRXUUV",m:"Hanwha Systems / Hanwha Ocean (South Korea)",s:"development",sl:"Prototype Due 2027",b:"Republic of Korea Navy (~$19M prototype contract)",uc:"ASW, mine warfare, ISR, mission reconfigurable",no:"Hydrogen fuel cell / AIP propulsion for up to 30-day endurance. Modular mission bays for ASW, MCM, and ISR roles. Partnered with Vatn Systems for swarm capabilities."},
+  {n:"China AJX002 XXL UUV",m:"Chinese State Shipyards (China)",s:"testing",sl:"Observed at Sanya Base",b:"PLA Navy",uc:"Mine-laying, strategic ISR, potential blockade ops",no:"At 18-20m, among the largest known unmanned submarines. Diesel-electric with lithium-ion batteries and pump-jet propulsion. At least 6 distinct XLUUV designs observed."}
+];
+
+var HM_SELL = [
+  {n:"Textron CUSV / MMUSV",m:"Textron Systems (USA)",u:"52-60 planned",b:"US Navy (LCS)",uc:"MCM, mine sweeping",no:"Evolving into 5th-gen MMUSV with doubled payload, but limited production volume vs. top 15."},
+  {n:"MAPC GARC",m:"MAPC (USA)",u:"Hundreds",b:"US Navy (USV Sq 3 & 7)",uc:"Attritable swarm ops",no:"Rapidly scaling (32 units/month) under Replicator, but too new for historical ranking."},
+  {n:"Rafael Protector",m:"Rafael (Israel)",u:"~50+",b:"Israel Navy, Singapore Navy",uc:"Port security, combat patrols",no:"First combat-deployed USV (2005). Historically significant but small fleet."},
+  {n:"Exail DriX",m:"Exail (France)",u:"30-50+",b:"NOAA, Indo-Pacific navies",uc:"High-precision hydrographic survey",no:"500K+ nautical miles logged. Excellent capability but niche volume."},
+  {n:"XOCEAN XO-450",m:"XOCEAN (Ireland)",u:"25-30 fleet",b:"Offshore wind developers",uc:"DaaS ocean survey",no:"Leading DaaS operator (\u20ac115M raised) but fleet still scaling."},
+  {n:"Elbit Seagull",m:"Elbit Systems (Israel)",u:"Export orders",b:"Asia-Pacific ($56M deal)",uc:"ASW, MCM",no:"Capable 12m platform with HELRAS sonar, but limited confirmed deliveries."}
+];
+
+var HM_EM = [
+  {n:"Japan ATLA/MHI UUV",m:"MHI / ATLA (Japan)",s:"Prototype",b:"JMSDF",uc:"Modular ISR/MCM",no:"Expandable 10-15.6m design with trials ongoing, but early stage."},
+  {n:"Russia Poseidon",m:"Rubin Design Bureau (Russia)",s:"Claimed Testing",b:"Russian Navy",uc:"Nuclear-armed strategic torpedo",no:"Nuclear-powered with unlimited range, but claims rely on state media."},
+  {n:"Kongsberg HUGIN Endurance",m:"Kongsberg (Norway)",s:"Production",b:"US Navy (DIU), commercial",uc:"Shore-to-shore autonomous survey",no:"11.9m / 15-day endurance. Evolution of established HUGIN line, not a new entrant."},
+  {n:"Bedrock Ocean AUV",m:"Bedrock Ocean (USA)",s:"Scaling",b:"Offshore wind, oil & gas",uc:"Cloud-connected seafloor mapping",no:"7-vehicle fleet with $63.4M funding. Innovative DaaS but fleet still small."},
+  {n:"Nauticus Aquanaut",m:"Nauticus Robotics (USA)",s:"Operational",b:"Petrobras, offshore",uc:"Transformer AUV/ROV subsea work",no:"Innovative tetherless design, but financial challenges ($1.98M Q3 revenue)."},
+  {n:"Saronic Corsair",m:"Saronic Technologies (USA)",s:"Production",b:"US Navy ($392M)",uc:"Defense autonomous surface vessel",no:"USV not UUV. Remarkable trajectory ($850M raised, $4B valuation)."}
+];
+
+var SOURCES = [
+  {d:"oceanalpha.com",t:"OceanAlpha product catalog and delivery data"},
+  {d:"teledynemarine.com",t:"Slocum Glider specs and fleet data"},
+  {d:"marinelink.com",t:"Atlas Elektronik SeaFox overview"},
+  {d:"hii.com",t:"REMUS series sales and Lionfish program"},
+  {d:"nasdaq.com",t:"HII financial reporting"},
+  {d:"naval-technology.com",t:"QinetiQ, rMCM, global naval programs"},
+  {d:"navaltoday.com",t:"L3Harris Iver AUV updates"},
+  {d:"hydro-international.com",t:"Hydrographic survey market data"},
+  {d:"liquid-robotics.com",t:"Wave Glider fleet data"},
+  {d:"wikipedia.org",t:"Magura V5, platform specifications"},
+  {d:"bulgarianmilitary.com",t:"Ukrainian naval drone reports"},
+  {d:"kyivpost.com",t:"Ukrainian defense industry"},
+  {d:"sea-machines.com",t:"Sea Machines deployment data"},
+  {d:"saildrone.com",t:"Saildrone fleet size and DaaS model"},
+  {d:"seapowermagazine.org",t:"US Navy autonomous systems"},
+  {d:"videoray.com",t:"VideoRay military contracts"},
+  {d:"kongsberg.com",t:"HUGIN specs and delivery numbers"},
+  {d:"offshore-energy.biz",t:"Offshore energy UMV analysis"},
+  {d:"navalnews.com",t:"Ghost Shark, Orca, global programs"},
+  {d:"seaber.fr",t:"YUCO micro-AUV sales data"},
+  {d:"saab.com",t:"Double Eagle system specifications"},
+  {d:"breakingdefense.com",t:"Ghost Shark program reporting"},
+  {d:"defensemirror.com",t:"Orca XLUUV development"},
+  {d:"darpa.mil",t:"Manta Ray program milestones"},
+  {d:"defensescoop.com",t:"Replicator initiative and Dive-LD"},
+  {d:"gdmissionsystems.com",t:"MEDUSA and Knifefish data"},
+  {d:"fw-mag.com",t:"XV Excalibur and French UCUV"},
+  {d:"cellula.com",t:"Solus-XR specifications"},
+  {d:"kedglobal.com",t:"South Korean defense procurement"},
+  {d:"rfa.org",t:"Chinese XLUUV observations"},
+  {d:"taipeitimes.com",t:"Taiwan Kuai Chi USV program"},
+  {d:"insideunmannedsystems.com",t:"US Navy UMV budget data"},
+  {d:"aa.com.tr",t:"Japan SHIELD budget reporting"},
+  {d:"exail.com",t:"rMCM and DriX delivery data"},
+  {d:"thalesgroup.com",t:"French SLAM-F contracts"},
+  {d:"prnewswire.com",t:"Saronic, XOCEAN funding"},
+  {d:"gcaptain.com",t:"Saronic Corsair Navy contract"},
+  {d:"workboat.com",t:"Bedrock and Seasats funding"},
+  {d:"neptune-robotics.com",t:"Neptune Robotics Series B"},
+  {d:"mordorintelligence.com",t:"UMV market sizing"},
+  {d:"marketsandmarkets.com",t:"UUV market growth"},
+  {d:"fortunebusinessinsights.com",t:"USV regional market share"},
+  {d:"grandviewresearch.com",t:"Commercial UMV segmentation"},
+  {d:"imarcgroup.com",t:"Asia-Pacific UMV growth"},
+  {d:"smartmaritimenetwork.com",t:"XOCEAN and Kongsberg facility"},
+  {d:"govconwire.com",t:"US Navy contract awards"},
+  {d:"therobotreport.com",t:"Manta Ray demonstration"},
+  {d:"vanguardcanada.com",t:"Canadian defense UUV programs"},
+  {d:"ukdefencejournal.org.uk",t:"UK defense procurement"},
+  {d:"businesstimes.com.sg",t:"Neptune Robotics market reporting"}
+];
+
+var tagCls = {military:"tag-military",commercial:"tag-commercial",scientific:"tag-scientific"};
+
+function buildTopCard(v) {
+  var card = el("div", {cls:"card reveal"});
+  card.appendChild(el("div", {cls:"card-rank", text:"#"+v.r}));
+  var icon = el("div", {cls:"card-icon " + v.t});
+  icon.appendChild(el("div", {text: v.t === "usv" ? "\u2693" : "\u2b24", style:"font-size:20px"}));
+  card.appendChild(icon);
+  var tags = el("div", {cls:"card-tags"});
+  v.tg.forEach(function(t) { tags.appendChild(el("span", {cls:"tag "+(tagCls[t]||"tag-commercial"), text:t})); });
+  card.appendChild(tags);
+  card.appendChild(el("div", {cls:"card-name", text:v.n}));
+  card.appendChild(el("div", {cls:"card-manufacturer", text:v.m}));
+  card.appendChild(el("p", {cls:"card-desc", text:v.d}));
+  var meta = el("div", {cls:"card-meta"});
+  var m1 = el("div"); m1.appendChild(el("span",{cls:"card-meta-label",text:v.ul})); m1.appendChild(el("span",{cls:"card-meta-value highlight",text:v.u})); meta.appendChild(m1);
+  var m2 = el("div"); m2.appendChild(el("span",{cls:"card-meta-label",text:"PRIMARY USE CASES"})); m2.appendChild(el("span",{cls:"card-meta-value",text:v.uc})); meta.appendChild(m2);
+  var m3 = el("div",{style:"grid-column:1/-1"}); m3.appendChild(el("span",{cls:"card-meta-label",text:"LARGEST BUYERS"})); m3.appendChild(el("span",{cls:"card-meta-value",text:v.b})); meta.appendChild(m3);
+  card.appendChild(meta);
+  return card;
+}
+
+function buildEmergingCard(v, i) {
+  var card = el("div", {cls:"card reveal"});
+  card.appendChild(el("div", {cls:"card-rank", text:"#"+(i+1)}));
+  var icon = el("div", {cls:"card-icon uuv"});
+  icon.appendChild(el("div", {text:"\u2b24", style:"font-size:20px"}));
+  card.appendChild(icon);
+  var badge = el("div",{style:"margin-bottom:10px"});
+  badge.appendChild(el("span",{cls:"stage-badge stage-"+v.s, text:v.sl}));
+  card.appendChild(badge);
+  card.appendChild(el("div",{cls:"card-name",text:v.n}));
+  card.appendChild(el("div",{cls:"card-manufacturer",text:v.m}));
+  card.appendChild(el("p",{cls:"card-desc",text:v.no}));
+  var meta = el("div",{cls:"card-meta"});
+  var m1 = el("div"); m1.appendChild(el("span",{cls:"card-meta-label",text:"TARGET BUYERS"})); m1.appendChild(el("span",{cls:"card-meta-value",text:v.b})); meta.appendChild(m1);
+  var m2 = el("div"); m2.appendChild(el("span",{cls:"card-meta-label",text:"INTENDED USE CASES"})); m2.appendChild(el("span",{cls:"card-meta-value",text:v.uc})); meta.appendChild(m2);
+  card.appendChild(meta);
+  return card;
+}
+
+function buildHMTable(id, data, headers) {
+  var table = document.getElementById(id);
+  var thead = el("thead");
+  var hrow = el("tr");
+  headers.forEach(function(h) { hrow.appendChild(el("th",{text:h})); });
+  thead.appendChild(hrow);
+  table.appendChild(thead);
+  var tbody = el("tbody");
+  data.forEach(function(d) {
+    var row = el("tr");
+    row.appendChild(el("td",{cls:"hm-name",text:d.n}));
+    row.appendChild(el("td",{cls:"hm-mfg",text:d.m}));
+    row.appendChild(el("td",{text:d.s||d.u}));
+    row.appendChild(el("td",{text:d.b}));
+    row.appendChild(el("td",{text:d.uc}));
+    row.appendChild(el("td",{cls:"hm-note",text:d.no}));
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+}
+
+function buildSources() {
+  var list = document.getElementById("src-list");
+  SOURCES.forEach(function(s, i) {
+    var div = el("div");
+    div.appendChild(txt("["+(i+1)+"] "));
+    var a = el("a",{href:"https://"+s.d,target:"_blank",rel:"noopener",text:s.d});
+    div.appendChild(a);
+    div.appendChild(txt(" \u2014 "+s.t));
+    list.appendChild(div);
+  });
+}
+
+function initReveal() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.08, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll(".reveal").forEach(function(e) { obs.observe(e); });
+}
+
+document.getElementById("theme-btn").addEventListener("click", function() {
+  var h = document.documentElement;
+  var isDark = h.getAttribute("data-theme") === "dark";
+  h.setAttribute("data-theme", isDark ? "light" : "dark");
+  document.getElementById("theme-label").textContent = isDark ? "DARK" : "LIGHT";
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var topGrid = document.getElementById("top-grid");
+  TOP.forEach(function(v) { topGrid.appendChild(buildTopCard(v)); });
+  var emGrid = document.getElementById("emerging-grid");
+  EMERGING.forEach(function(v,i) { emGrid.appendChild(buildEmergingCard(v,i)); });
+  buildHMTable("hm-sellers", HM_SELL, ["Vehicle","Manufacturer","Units","Buyers","Use Cases","Why Not Top 15"]);
+  buildHMTable("hm-emerging", HM_EM, ["Vehicle","Manufacturer","Stage","Target Buyers","Use Cases","Why Not Top 10"]);
+  buildSources();
+  requestAnimationFrame(function() { requestAnimationFrame(initReveal); });
+});
+</script>
+</body>
+</html>

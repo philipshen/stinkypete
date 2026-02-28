@@ -1,0 +1,69 @@
+Research the following topic in depth:
+
+TOPIC: Major UMV Buyers & Global Procurement Programs
+
+CONTEXT: This research is part of a larger investigation into the Unmanned Marine Vehicle (UMV) market, covering both Unmanned Underwater Vehicles (UUVs) and Unmanned Surface Vehicles (USVs). The end goal is a comprehensive market report identifying the top 15 UMVs by sales, 10 up-and-coming UUVs, and honorable mentions. This specific research focuses on the BUYER side — which navies and organizations are purchasing these systems, what their budgets are, and what specific procurement programs exist.
+
+We already know from prior research that:
+- The military UUV market is $4-6 billion (2025), projected to reach $8-10 billion by 2030
+- HII's REMUS series leads in unit volume (700+ sold to 30 countries)
+- Atlas Elektronik's SeaFox leads in expendable mine disposal
+- The USV market is $0.82-1.5 billion (2025), projected to reach $3.5 billion by 2034
+- OceanAlpha has delivered 4,000+ USVs
+- Ukraine's Magura V5 has validated the combat attritable USV concept
+- The commercial/scientific UMV market is ~$5.2 billion (2025)
+
+Please provide:
+
+1. **Top Military Buyers by Spending/Fleet Size** — Which navies are the largest buyers of UMVs (both UUVs and USVs)? Rank the top 15-20 countries by estimated UMV fleet size, procurement spending, or number of programs. Include:
+   - US Navy (specific programs: Orca XLUUV, Snakehead LDUUV, Medium USV, Large USV, Replicator initiative, Ghost Fleet Overlord)
+   - Royal Navy (UK) programs
+   - Royal Australian Navy programs
+   - Chinese PLAN programs
+   - South Korean Navy programs
+   - Japanese MSDF programs
+   - Indian Navy programs
+   - NATO mine countermeasures programs (Belgian-Dutch MCMV replacement, French-UK MMCM)
+   - Israeli Navy programs
+   - Turkish Navy programs
+   - Any other significant buyers
+
+2. **Specific Procurement Programs & Budgets** — For each major buyer, identify:
+   - Named procurement programs (e.g., US Navy PEO Unmanned & Small Combatants)
+   - Budget allocations (FY2024-2026 where available)
+   - Quantities ordered or planned
+   - Which specific UMV platforms they are buying
+   - Contract values and prime contractors
+   - Timeline and delivery schedules
+
+3. **Regional Market Dynamics** — Break down UMV procurement by region:
+   - North America (US, Canada)
+   - Europe (NATO members, Nordic countries, UK)
+   - Asia-Pacific (China, Japan, South Korea, Australia, India, Singapore)
+   - Middle East (Israel, UAE, Saudi Arabia, Turkey)
+   - Other regions with emerging UMV programs
+
+4. **Commercial & Scientific Buyers** — Major non-military buyers:
+   - Oil & gas companies (subsea inspection fleets)
+   - Oceanographic research institutions (NOAA, MBARI, etc.)
+   - Hydrographic survey organizations
+   - Offshore wind farm operators
+   - Aquaculture companies
+   - Environmental monitoring agencies
+
+5. **Procurement Trends** — Key trends shaping UMV buying:
+   - Shift from custom to COTS (commercial off-the-shelf) platforms
+   - "Data as a Service" vs. platform ownership models
+   - Attritable/expendable UMV concepts post-Ukraine conflict
+   - Autonomous mine countermeasures as a driver
+   - Multi-domain integration requirements
+   - Export control and technology transfer issues
+
+6. **Key Contracts & Deals (2022-2026)** — List the largest known UMV contracts by value, including:
+   - Contract value
+   - Buyer and seller
+   - Platform(s) involved
+   - Date awarded
+   - Delivery timeline
+
+Focus on accuracy and cite your sources. Provide specific numbers, budgets, and contract values wherever possible. Include all source URLs for claims made.

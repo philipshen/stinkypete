@@ -1,0 +1,16 @@
+Research the following topic in depth:
+
+TOPIC: Commercial & Scientific UMVs with Highest Adoption
+
+CONTEXT: This research is part of a larger investigation into unmanned marine vehicles (UMVs) for a comprehensive market report. The final output is a static HTML site covering the top 15 UMVs by sales, 10 up-and-coming UUVs, and honorable mentions, with details on manufacturers, buyers, sales/deployment numbers, and use cases. This subtopic focuses specifically on non-military UMVs used in offshore energy inspection, oceanography, hydrographic survey, and environmental monitoring.
+
+Please provide:
+1. A comprehensive analysis of commercial and scientific unmanned marine vehicles (both surface and underwater) with the highest adoption rates worldwide
+2. For each vehicle, include: manufacturer, estimated units sold or deployed, primary buyers (organizations, nations, industries), primary use cases, development stage, and what makes it notable
+3. Cover key platforms including but not limited to: Liquid Robotics Wave Glider, Teledyne Gavia, Saildrone, Kongsberg Hugin, ECA Group A-series, Riptide Micro-UUV, Hydroid REMUS (commercial variants), OceanAlpha USVs, Sea Machines autonomous vessel systems, Bedrock Ocean Exploration AUVs, Exail (formerly iXblue/ECA) platforms, and other significant commercial/scientific UMVs
+4. Market size estimates for the commercial/scientific UMV segment
+5. Key trends driving adoption (e.g., offshore wind farm inspection, deep-sea mining surveys, climate monitoring, aquaculture)
+6. All source URLs for claims made
+7. A list of open questions or areas that need further investigation
+
+Focus on accuracy, cite your sources, and distinguish between confirmed sales figures and estimates.

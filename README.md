@@ -1,12 +1,16 @@
 # Researcher
 
-Recursive deep research powered by Gemini and OpenAI deep research APIs, orchestrated by Claude Code.
+Recursive deep research powered by Gemini and OpenAI deep research APIs, orchestrated by any agent that can reference the skills (Claude Code, Codex, Gemini, Cursor should all work).
 
-Warning: recursive API calls are made at the discretion of the agents. This could murder your API usage
+Some research examples can be found in topics/
+
+Expect it to run for ~1hr before completing.
+
+Warning: recursive API calls are gonna be made at the discretion of the agent. Watch out for your API bill. Since you're just using Codex or whatever to orchestrate, you can always interrupt it and say something like "that's good enough, skip the rest of the research and show me the results"
 
 ## Overview
 
-This project uses two Claude Code skills to automate deep, recursive research on any topic:
+This project uses two agent skills to automate deep, recursive research on any topic:
 
 1. **recursive-research** — The orchestrator. Sets up a research session, discovers initial topics with the user, dispatches parallel deep research subagents, and synthesizes cited final outputs.
 2. **deep-research** — The per-topic worker. Runs as a subagent for each research topic. Calls a deep research API, processes the output, extracts insights, and feeds open questions back into the queue.
@@ -29,7 +33,31 @@ Research naturally terminates when no new relevant, non-redundant questions rema
    OPENAI_API_KEY=your-key-here
    ```
 
-3. **Usage:** Ask Claude Code to research a topic. The `recursive-research` skill triggers on requests like "research X", "investigate Y", or "deep dive into Z".
+## Usage
+
+### Basic Usage
+
+1. Set up the .env with a GEMINI_API_KEY and/or OPENAI_API_KEY
+2. Launch your coding agent of choice in this repo
+3. Prompt it with something you want to research (if your agent has an explicit "Plan" mode, start in that mode)
+4. It'll work with you to figure out the exit case for recursion, a base case of research topics to begin with, and what you want the output to look
+5. Once it starts, it'll do all the research and then create the final output on its own
+
+All the skills are agent-agnostic, so whatever orchestrator you prefer will work. If you really want it to run fully autonomously, pass in flags to make the agent bypass permissions e.g.
+
+`$ gemini --approval-mode=yolo`
+`$ claude --dangerously-skip-permissions`
+`$ codex --dangerously-bypass-approvals-and-sandbox`
+
+### Explorer
+
+Once Python deps are installed you can launch the explorer:
+
+```bash
+./explorer/explorer.sh
+```
+
+This runs a really basic web GUI for browsing the research/outputs. It's for the lazy (like me), and isn't much more convenient than just using your IDE.
 
 ## How It Works
 

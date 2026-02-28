@@ -1,0 +1,17 @@
+Research the following topic in depth:
+
+TOPIC: Top-Selling Military & Commercial USVs
+
+CONTEXT: This research is part of a larger investigation into unmanned marine vehicles (UMVs) for a comprehensive market report. The final output will include a ranking of the Top 15 UMVs by sales/deployments, 10 up-and-coming UUVs, and honorable mentions. This subtopic focuses specifically on unmanned surface vehicles (USVs) used across both defense and commercial segments.
+
+Please provide:
+1. A comprehensive analysis of the top-selling and most-deployed unmanned surface vehicles (USVs) worldwide, covering both military/defense and commercial segments
+2. For each USV platform, include: manufacturer, vehicle name, estimated number of units sold or deployed, largest buyers (nations or organizations), primary use cases (e.g., mine countermeasures, ISR, port security, offshore energy inspection, hydrographic survey), key specifications (size, endurance, payload capacity), and approximate unit cost where available
+3. Specific coverage of USV platforms from: L3Harris (e.g., MAST-13, ASV), Textron (e.g., CUSV), Elbit Systems (e.g., Seagull), Sea Machines Robotics, Rafael (e.g., Protector), Israel Aerospace Industries, Hanwha Systems, ATLAS ELEKTRONIK, QinetiQ, and any other major USV manufacturers
+4. Sales and procurement data: which nations have purchased or are procuring USVs, contract values, fleet sizes, and delivery timelines
+5. Commercial USV adoption: companies like Sea Machines, Maritime Robotics, ASV Global (now L3Harris), Saildrone (surface operations), and others serving offshore energy, shipping, survey, and environmental monitoring markets
+6. Comparison of military vs. commercial USV market segments by volume and revenue
+7. All source URLs for claims made — including defense news outlets, manufacturer press releases, government procurement documents, and industry reports
+8. A list of open questions or areas that need further investigation
+
+Focus on accuracy, cite your sources, and prioritize quantitative data (unit counts, contract values, fleet sizes) over qualitative descriptions.

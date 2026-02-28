@@ -1,0 +1,47 @@
+# Emerging Next-Generation UUV Programs
+
+## API
+
+gemini
+
+## Prompt
+
+Research the following topic in depth:
+
+TOPIC: Emerging Next-Generation UUV Programs
+
+CONTEXT: This research is part of a larger investigation into the Unmanned Marine Vehicle (UMV) market, specifically identifying the top 15 UMVs by sales, 10 up-and-coming UUVs, and honorable mentions. This sub-topic focuses on new UUV platforms currently in development or recently launched that represent the next generation of underwater unmanned vehicles.
+
+Please provide:
+1. A comprehensive analysis of emerging next-generation UUV programs, including but not limited to:
+   - Anduril Industries Dive-LD (Large Displacement UUV)
+   - Australia's Ghost Shark (developed by Anduril Australia)
+   - Northrop Grumman Manta Ray
+   - Boeing Orca (Extra Large UUV / XLUUV)
+   - L3Harris Iver4 series and any next-gen successors
+   - MSubs S201 and other XLUUV programs
+   - General Atomics / Bluefin Robotics next-gen platforms
+   - Any Chinese, Russian, European, South Korean, Japanese, or other national emerging UUV programs
+   - DARPA-funded or government-backed experimental UUV programs
+   - Any startup or non-traditional defense company UUV programs
+
+2. For each program, provide:
+   - Current development stage (concept, prototype, testing, low-rate initial production, operational)
+   - Manufacturer/developer and key partners
+   - Target buyers (which navies or organizations)
+   - Key specifications (size class, endurance, depth rating, payload capacity where known)
+   - Intended use cases (ISR, mine countermeasures, ASW, strike, logistics, etc.)
+   - What makes it notable or innovative compared to existing platforms
+   - Estimated timeline to operational capability
+   - Approximate program value or unit cost if known
+   - Any recent contract awards, test milestones, or program updates (especially 2024-2026)
+
+3. All source URLs for claims made
+
+4. A list of open questions or areas that need further investigation, such as:
+   - Programs with limited public information
+   - Classified or export-restricted programs that may be significant
+   - Technology readiness levels that are uncertain
+   - Budget or timeline risks
+
+Focus on accuracy and cite your sources. Prioritize programs that are most likely to reach operational deployment and have the greatest market impact.
